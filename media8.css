@@ -39,8 +39,8 @@
   }
 
   #educationdiv #checkboxInput {
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
   }
 
   #educationdiv label {
@@ -48,8 +48,8 @@
   }
 
   #sex input {
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
   }
 
   #sex label {
