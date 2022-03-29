@@ -6,7 +6,7 @@
 
 :root {
   --background-color: rgba(0, 0, 0, 0.9);
-  --background-color-for-first-form: rgba(128, 128, 128, 0.7);
+  --background-color-for-first-form: rgba(0, 0, 0, 0.86);
   --border-for-gridscreen: 35px;
 }
 
@@ -75,6 +75,7 @@ body::-webkit-scrollbar {
 }
 
 #textInput:focus {
+  filter: drop-shadow(0 0 15px #53FF02);
   width: 80%;
   border-color: #53FF02;
 }
