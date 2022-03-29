@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root {
+  --background-color: rgba(0, 0, 0, 0.9);
+  --background-color-for-first-form: rgba(128, 128, 128, 0.7);
+  --border-for-gridscreen: 35px;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.app {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+}
+
+.app .box {
+  position: relative;
+  display: grid;
+  grid-template: var(--border-for-gridscreen) repeat(3, 2fr) var(--border-for-gridscreen) / var(--border-for-gridscreen) repeat(3, 1fr) var(--border-for-gridscreen);
+  background-color: var(--background-color-for-first-form);
+  height: 100vh;
+}
+
+.app .box:nth-child(2) {
+  background-color: blue;
+  display: grid;
+  grid-template: var(--border-for-gridscreen) repeat(3, 2fr) var(--border-for-gridscreen) / var(--border-for-gridscreen) repeat(4, 1fr) var(--border-for-gridscreen);
+}
+
+.formStyle {
+  background-color: var(--background-color);
+  display: grid;
+}
+
+/* First grid  */
+.divCreate {
+  transition: 0.5s all ease-in 0s;
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  grid-column: 2 / span 3;
+  grid-row: 2 / span 3;
+  grid-template: repeat(8, 1fr) / 10% repeat(2, 40%) 10%;
+}
+
+.divCreate * {
+  margin: auto;
+  color: white
+}
+
+/* Elements of first grid #name */
+#formHeader {
+  font-size: xx-large;
+  grid-column: 2/ span 2;
+}
+
+#textInput {
+  background-color: var(--background-color);
+  border: 5px solid #5B33FF;
+  transition: 0.5s all ease-in 0s;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  outline: none;
+  width: 70%;
+  height: 40px;
+  grid-column: 2/ span 2;
+}
+
+#textInput:focus {
+  width: 80%;
+  height: 60%;
+  border-color: #53FF02;
+}
+
+#textInput::-webkit-input-placeholder {
+  text-align: center;
+  color: white;
+}
+
+#otherSittings {
+  font-size: x-large;
+  grid-column: 1 / span 2;
+  grid-row: 5 / span 1;
+}
+
+#educationdiv {
+  display: flex;
+  align-items: center;
+  grid-column: 3 / span 1;
+  grid-row: 5 / span 1;
+}
+
+#educationdiv #checkboxInput {
+  cursor: pointer;
+  margin: 10px;
+  width: 30px;
+  height: 30px;
+  -webkit-appearance: none;
+  background-color: #5B33FF;
+  filter: drop-shadow(0px 0px 15px #5B33FF);
+  border-radius: 20px;
+  transition: all 1s ease-out 0s;
+}
+
+#educationdiv input[type="checkbox"]#checkboxInput:checked {
+  border: none;
+  background-size: 100% 100%;
+  background-color: #53FF02;
+  background-image: url(./Image/checked.png);
+  filter: drop-shadow(0px 0px 15px rgb(173, 255, 47));
+}
+
+#educationdiv label {
+  font-size: 20px;
+}
+
+#sex {
+  grid-column: 3 / span 1;
+  grid-row: 6 / span 1;
+}
+
+#buttonInput {
+  grid-column: 1 / span 2;
+  grid-row: 7 / span 1;
+}
+
+#resetInput {
+  grid-column: 3 / span 2;
+  grid-row: 7 / span 1;
+}
+
+.divSearch {
+  border-radius: 20px;
+  grid-column: 2 / span 4;
+  grid-row: 2 / span 3;
+  background-color: bisque;
+}

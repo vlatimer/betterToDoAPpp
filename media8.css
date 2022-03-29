@@ -1,0 +1,60 @@
+@media (max-width: 1000px) {
+  #formHeader {
+    font-size: x-large;
+  }
+
+  #otherSittings {
+    font-size: large;
+  }
+}
+
+@media (max-width: 800px) {
+  * {
+    --border-for-gridscreen: 25px;
+  }
+
+  .app {
+    min-height: 100px;
+    grid-template-columns: none;
+    /* grid-template-rows: 3fr 5fr; */
+  }
+
+  .app .box {
+    height: 70vh;
+    grid-template: var(--border-for-gridscreen) repeat(2, 2fr) var(--border-for-gridscreen) / var(--border-for-gridscreen) repeat(4, 1fr) var(--border-for-gridscreen);
+  }
+
+  .divCreate {
+    grid-column: 2 / span 4;
+    grid-row: 2 / span 2;
+  }
+
+  .app .box:nth-child(2) {
+    height: 100vh;
+    grid-template: var(--border-for-gridscreen) repeat(3, 2fr) var(--border-for-gridscreen) / var(--border-for-gridscreen) repeat(4, 1fr) var(--border-for-gridscreen);
+  }
+
+  #formHeader {
+    font-size: large;
+  }
+
+  #otherSittings {
+    font-size: medium;
+  }
+
+  #educationdiv #checkboxInput {
+    height: 20px;
+    width: 20px;
+  }
+
+  #educationdiv label {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  * {
+    --border-for-gridscreen: 12.5px;
+  }
+
+}
