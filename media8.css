@@ -38,17 +38,22 @@
     font-size: large;
   }
 
-  #otherSittings {
-    font-size: medium;
-  }
-
   #educationdiv #checkboxInput {
     height: 20px;
     width: 20px;
   }
 
   #educationdiv label {
-    font-size: 14px;
+    font-size: 18px;
+  }
+
+  #sex input {
+    height: 20px;
+    width: 20px;
+  }
+
+  #sex label {
+    font-size: 16px;
   }
 }
 
@@ -57,4 +62,11 @@
     --border-for-gridscreen: 12.5px;
   }
 
+  #educationdiv label {
+    font-size: 14px;
+  }
+
+  #otherSittings {
+    font-size: medium;
+  }
 }

@@ -104,8 +104,10 @@ body::-webkit-scrollbar {
   width: 30px;
   height: 30px;
   -webkit-appearance: none;
-  background-color: #5B33FF;
-  filter: drop-shadow(0px 0px 15px #5B33FF);
+  background-color: #FF5733;
+  background-size: 100% 100%;
+  background-image: url(./Image/x-mark.png);
+  filter: drop-shadow(0px 0px 15px #FF5733);
   border-radius: 20px;
   transition: all 1s ease-out 0s;
 }
@@ -115,7 +117,7 @@ body::-webkit-scrollbar {
   background-size: 100% 100%;
   background-color: #53FF02;
   background-image: url(./Image/checked.png);
-  filter: drop-shadow(0px 0px 15px rgb(173, 255, 47));
+  filter: drop-shadow(0px 0px 15px #53FF02);
 }
 
 #educationdiv label {
@@ -123,8 +125,38 @@ body::-webkit-scrollbar {
 }
 
 #sex {
+  display: grid;
   grid-column: 3 / span 1;
   grid-row: 6 / span 1;
+  grid-template: 40px 40px / 40px minmax(40px, 100px);
+}
+
+#sex input {
+  transition: all 0.5s ease-out 0s;
+  -webkit-appearance: none;
+  width: 30px;
+  height: 30px;
+  background-color: azure;
+  border-radius: 50%;
+  background-size: 100% 100%;
+  background-image: url(./Image/x-mark.png);
+  background-color: #FF5733;
+  filter: drop-shadow(0 0 15px #FF5733);
+}
+
+#sex input:not(:checked) {
+  cursor: pointer;
+}
+
+#sex input:checked {
+  background-size: 100% 100%;
+  background-image: url(./Image/checked.png);
+  background-color: #53FF02;
+  filter: drop-shadow(0 0 15px #53FF02);
+}
+
+#sex label {
+  font-size: 20px;
 }
 
 #buttonInput {
