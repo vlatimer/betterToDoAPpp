@@ -13,7 +13,7 @@
 <body>
   <section class="app">
     <div class="box">
-      <form class="divCreate formStyle">
+      <form class="divCreate formStyle" name="Person">
         <h3 id="formHeader">Adding employees</h3>
         <input id="textInput" type="text" placeholder="Name" name="personname">
         <input id="textInput" type="text" placeholder="Surname" name="personsurname">
@@ -27,15 +27,16 @@
           <input type="radio" name="sex" id="man" checked>
           <label for="man">Man</label>
           <input type="radio" name="sex" id="woman">
-          <label for="Woman">Woman</label>
+          <label for="woman">Woman</label>
         </div>
-        <input id="buttonInput" --i="1" type="button" value="Add">
-        <input id="resetInput" --i="3" type="reset" value="Reset">
+        <input id="buttonInput" class="formButton" type="button" value="ADD" onclick="show()">
+        <input id="resetInput" class="formButton" type="reset" value="RESET">
       </form>
     </div>
     <div class="box">
       <form class="divSearch formStyle"></form>
     </div>
+    <script src="./script.js"></script>
 </body>
 
 </html>

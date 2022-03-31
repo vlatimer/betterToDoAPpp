@@ -132,7 +132,7 @@ body::-webkit-scrollbar {
 }
 
 #sex input {
-  transition: all 0.5s ease-out 0s;
+  transition: all 0.25s ease-out 0s;
   -webkit-appearance: none;
   width: 30px;
   height: 30px;
@@ -160,6 +160,32 @@ body::-webkit-scrollbar {
   align-self: center;
   margin: unset;
   font-size: 20px;
+}
+
+.formButton {
+  transition: 0.3s all ease-out 0s;
+  position: relative;
+  font-size: large;
+  height: 35px;
+  width: 55%;
+  cursor: pointer;
+  color: white;
+  background-color: var(--background-color);
+  border: 5px solid #5B33FF;
+  border-radius: 20px;
+  box-shadow: 0 5px 0 gray;
+  filter: drop-shadow(0 0 7px #5B33FF);
+}
+
+.formButton:hover {
+  top: 3px;
+  box-shadow: 0 2px 0 gray;
+}
+
+.formButton:focus {
+  box-shadow: none;
+  border-color: #53FF02;
+  filter: drop-shadow(0 0 7px #53FF02);
 }
 
 #buttonInput {

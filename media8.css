@@ -55,6 +55,12 @@
   #sex label {
     font-size: 16px;
   }
+
+  .formButton {
+    width: 100px;
+    height: 30px;
+    font-size: medium;
+  }
 }
 
 @media (max-width: 400px) {
@@ -68,5 +74,10 @@
 
   #otherSittings {
     font-size: medium;
+  }
+
+  .formButton {
+    width: 80px;
+    font-size: small;
   }
 }
