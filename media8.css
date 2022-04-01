@@ -4,7 +4,16 @@
   }
 
   #otherSittings {
-    font-size: large;
+    font-size: medium;
+  }
+
+  #filterDiv p {
+    font-size: small;
+  }
+
+  #filterDiv select {
+    width: 80px;
+    font-size: 12px;
   }
 }
 
@@ -73,11 +82,23 @@
   }
 
   #otherSittings {
-    font-size: medium;
+    font-size: small;
   }
 
   .formButton {
     width: 80px;
     font-size: small;
+  }
+
+  #filterDiv select {
+    width: 60px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width:350px) {
+  #filterDiv select {
+    width: 40px;
+    font-size: 8px;
   }
 }

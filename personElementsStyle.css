@@ -1,0 +1,141 @@
+/* Elements of first grid #name */
+.formHeader {
+  grid-column: 2/ span 2;
+}
+
+#textInput {
+  background-color: var(--background-color);
+  border: 5px solid #5B33FF;
+  transition: 0.5s all ease-in 0s;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  outline: none;
+  width: 70%;
+  height: 50px;
+  grid-column: 2/ span 2;
+}
+
+#textInput:focus {
+  filter: drop-shadow(0 0 15px #53FF02);
+  width: 80%;
+  border-color: #53FF02;
+}
+
+#textInput::-webkit-input-placeholder {
+  text-align: center;
+  color: white;
+}
+
+
+.otherSittings {
+  grid-column: 1 / span 2;
+  grid-row: 5 / span 1;
+}
+
+#educationdiv {
+  display: flex;
+  align-items: center;
+  grid-column: 3 / span 1;
+  grid-row: 5 / span 1;
+}
+
+#educationdiv #checkboxInput {
+  cursor: pointer;
+  margin: 10px;
+  width: 30px;
+  height: 30px;
+  -webkit-appearance: none;
+  background-color: #FF5733;
+  background-size: 100% 100%;
+  background-image: url(./Image/x-mark.png);
+  filter: drop-shadow(0px 0px 15px #FF5733);
+  border-radius: 20px;
+  transition: all 1s ease-out 0s;
+}
+
+#educationdiv input[type="checkbox"]#checkboxInput:checked {
+  border: none;
+  background-size: 100% 100%;
+  background-color: #53FF02;
+  background-image: url(./Image/checked.png);
+  filter: drop-shadow(0px 0px 15px #53FF02);
+}
+
+#educationdiv label {
+  font-size: 20px;
+}
+
+#sex {
+  display: grid;
+  grid-column: 3 / span 1;
+  grid-row: 6 / span 1;
+  grid-template: 40px 40px / 40px minmax(40px, 100px);
+}
+
+#sex input {
+  transition: all 0.25s ease-out 0s;
+  -webkit-appearance: none;
+  width: 30px;
+  height: 30px;
+  background-color: azure;
+  border-radius: 50%;
+  background-size: 100% 100%;
+  background-image: url(./Image/x-mark.png);
+  background-color: #FF5733;
+  filter: drop-shadow(0 0 15px #FF5733);
+}
+
+#sex input:not(:checked) {
+  cursor: pointer;
+}
+
+#sex input:checked {
+  background-size: 100% 100%;
+  background-image: url(./Image/checked.png);
+  background-color: #53FF02;
+  filter: drop-shadow(0 0 15px #53FF02);
+}
+
+#sex label {
+  justify-self: start;
+  align-self: center;
+  margin: unset;
+  font-size: 20px;
+}
+
+.formButton {
+  transition: 0.3s all ease-out 0s;
+  position: relative;
+  font-size: large;
+  height: 35px;
+  width: 55%;
+  cursor: pointer;
+  color: white;
+  background-color: var(--background-color);
+  border: 5px solid #5B33FF;
+  border-radius: 20px;
+  box-shadow: 0 5px 0 gray;
+  filter: drop-shadow(0 0 7px #5B33FF);
+}
+
+.formButton:hover {
+  top: 3px;
+  box-shadow: 0 2px 0 gray;
+}
+
+.formButton:focus {
+  box-shadow: none;
+  border-color: #53FF02;
+  filter: drop-shadow(0 0 7px #53FF02);
+}
+
+#buttonInput {
+  grid-column: 1 / span 2;
+  grid-row: 7 / span 1;
+}
+
+#resetInput {
+  grid-column: 3 / span 2;
+  grid-row: 7 / span 1;
+}

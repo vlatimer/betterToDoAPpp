@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TodoApp</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="personElementsStyle.css">
   <link rel="stylesheet" href="media8.css">
 </head>
 
@@ -14,11 +15,11 @@
   <section class="app">
     <div class="box">
       <form class="divCreate formStyle" name="Person">
-        <h3 id="formHeader">Adding employees</h3>
+        <h3 id="formHeader" class="formHeader">Adding employees</h3>
         <input id="textInput" type="text" placeholder="Name" name="personname">
         <input id="textInput" type="text" placeholder="Surname" name="personsurname">
         <input id="textInput" type="text" placeholder="01.01.2001" name="persondate">
-        <h4 id="otherSittings">Other settings:</h4>
+        <h4 id="otherSittings" class="otherSittings">Other settings:</h4>
         <div id="educationdiv">
           <input id="checkboxInput" type="checkbox" name="education">
           <label for="education">Education</label>
@@ -34,7 +35,54 @@
       </form>
     </div>
     <div class="box">
-      <form class="divSearch formStyle"></form>
+      <form class="divSearch formStyle">
+        <h3 id="formHeader" class="searchHeader">Search for employees</h3>
+        <h4 id="otherSittings" class="filterHeader">Filters:</h4>
+        <h4 id="otherSittings" class="sortingHeader">Sorting:</h4>
+        <div id="filterDiv" class="statusDiv">
+          <p>Status:</p>
+          <select name="filterStatus">
+            <option value="all">All</option>
+            <option value="work">Working</option>
+            <option value="notWork">Dismissed</option>
+          </select>
+        </div>
+        <div id="filterDiv" class="ageDiv">
+          <p>Ages:</p>
+          <select name="filterAge">
+            <option value="all">All</option>
+            <option value="teen">Up to 25</option>
+            <option value="grown">From 25 to 45</option>
+            <option value="old">From 45</option>
+          </select>
+        </div>
+        <div id="filterDiv" class="educationDiv">
+          <p>Education:</p>
+          <select name="filterEducation">
+            <option value="all">Any</option>
+            <option value="educated">Higher</option>
+            <option value="notEducated">Medium</option>
+          </select>
+        </div>
+        <div id="filterDiv" class="sexDiv">
+          <p>Gender:</p>
+          <select name="filterSex">
+            <option value="all">All</option>
+            <option value="man">Man</option>
+            <option value="woman">Woman</option>
+          </select>
+        </div>
+        <div class="sorting">
+          <input type="radio" name="sorting" id="alfebet">
+          <label for="alfebet" class="listinput">Alphabetically</label>
+          <input type="radio" name="sorting" id="creation">
+          <label for="creation" class="listinput">By creation time</label>
+          <input type="radio" name="sorting" id="deletion">
+          <label for="deletion" class="listinput">By deletion time</label>
+          <input type="radio" name="sorting" id="without">
+          <label for="without" class="listinput">Without sorting</label>
+        </div>
+      </form>
     </div>
     <script src="./script.js"></script>
 </body>
