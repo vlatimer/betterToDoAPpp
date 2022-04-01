@@ -15,6 +15,20 @@
     width: 80px;
     font-size: 12px;
   }
+
+  .sorting {
+    grid-template: repeat(4, 25%) / 20px 70%;
+  }
+
+  .sorting label {
+    font-size: small;
+  }
+}
+
+@media(max-width: 880px) {
+  .sorting label {
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 800px) {
@@ -70,6 +84,16 @@
     height: 30px;
     font-size: medium;
   }
+
+  .sorting label {
+    font-size: medium;
+  }
+}
+
+@media(max-width: 550px) {
+  .sorting label {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -94,11 +118,19 @@
     width: 60px;
     font-size: 8px;
   }
+
+  .sorting label {
+    font-size: 11px;
+  }
 }
 
 @media (max-width:350px) {
   #filterDiv select {
     width: 40px;
     font-size: 8px;
+  }
+
+  .sorting label {
+    font-size: 9px;
   }
 }

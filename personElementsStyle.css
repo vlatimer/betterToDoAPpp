@@ -41,6 +41,7 @@
 }
 
 #educationdiv #checkboxInput {
+  outline: none;
   cursor: pointer;
   margin: 10px;
   width: 30px;
@@ -74,6 +75,7 @@
 }
 
 #sex input {
+  outline: none;
   transition: all 0.25s ease-out 0s;
   -webkit-appearance: none;
   width: 30px;
