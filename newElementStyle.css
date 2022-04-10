@@ -1,0 +1,129 @@
+.newElemenet {
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  position: relative;
+  height: 100px;
+  display: grid;
+  grid-template: 10% repeat(2, 1fr) 10% / 2.5% repeat(2, 20%) 30% 20% 2.5%;
+  border: 5px solid white;
+  border-radius: 20px;
+}
+
+.names {
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 1;
+}
+
+.birthday {
+  grid-row: 2 / span 1;
+  grid-column: 3 / span 1;
+}
+
+.creationTime {
+  grid-row: 2 / span 1;
+  grid-column: 4 / span 1;
+}
+
+.creationTime p,
+.deletiontime p {
+  text-align: center;
+}
+
+.creationTime span,
+.deletiontime span {
+  font-size: 11px;
+}
+
+.deletiontime {
+  grid-row: 2 / span 1;
+  grid-column: 5 / span 1;
+}
+
+.othersElements {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  grid-row: 3 / span 1;
+  grid-column: 2 / span 3;
+}
+
+.othersElements * {
+  text-align: center;
+}
+
+.educatedElement {
+  flex: 2;
+  position: relative;
+}
+
+
+.sexElement {
+  position: relative;
+  flex: 1;
+}
+
+.educatedElement::after,
+.sexElement::after {
+  transition: 0.3s all ease-out 0s;
+  border-radius: 5%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  height: 100%;
+  content: "";
+  display: block;
+  background-color: aliceblue;
+  background-size: 100% 100%;
+}
+
+.educatedElement.high::after {
+  background-color: rgb(76, 222, 76);
+  background-image: url(./Image/science.png);
+}
+
+.educatedElement.low::after {
+  background-color: rgb(241, 180, 65);
+  background-image: url(./Image/school.png);
+}
+
+.sexElement.man::after {
+  background-image: url(./Image/young-man.png);
+  background-color: rgb(118, 202, 247);
+}
+
+.sexElement.woman::after {
+  background-color: rgb(211, 118, 247);
+  background-image: url(./Image/woman.png);
+}
+
+.buttonForDeley {
+  position: relative;
+  cursor: pointer;
+  grid-row: 3 / span 1;
+  grid-column: 5 / span 1;
+  height: 75%;
+  width: 80%;
+  border-radius: 20px;
+  background-color: transparent;
+  border: 2px solid rgb(171, 33, 33);
+  box-shadow: 0 2px 0 gray;
+  transition: 0.23s all linear 0s;
+}
+
+.buttonForDeley:hover {
+  height: 80%;
+  width: 90%;
+}
+
+.buttonForDeley:focus {
+  border-color: rgb(255, 101, 101);
+  filter: drop-shadow(0px 0px 15px #FF5733);
+  box-shadow: none;
+  top: 2px;
+}
+
+.noButton {
+  background-color: rgb(255, 101, 101);
+  transform: rotate(30deg);
+}

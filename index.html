@@ -8,6 +8,9 @@
   <title>TodoApp</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="personElementsStyle.css">
+  <link rel="stylesheet" href="personSearchStyle.css">
+  <link rel="stylesheet" href="personSearchStyle.css">
+  <link rel="stylesheet" href="newElementStyle.css">
   <link rel="stylesheet" href="media8.css">
 </head>
 
@@ -30,7 +33,7 @@
           <input type="radio" name="sex" id="woman">
           <label for="woman">Woman</label>
         </div>
-        <input id="buttonInput" class="formButton" type="button" value="ADD" onclick="show()">
+        <input id="buttonInput" class="formButton" type="button" value="ADD" onclick="createPerson()">
         <input id="resetInput" class="formButton" type="reset" value="RESET">
       </form>
     </div>
@@ -81,6 +84,9 @@
           <label for="deletion" class="listinput">Deletion time</label>
           <input type="radio" name="sorting" id="without">
           <label for="without" class="listinput">Without sorting</label>
+        </div>
+        <div id="listDiv">
+
         </div>
       </form>
     </div>
