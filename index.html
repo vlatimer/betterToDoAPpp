@@ -38,7 +38,7 @@
       </form>
     </div>
     <div class="box">
-      <form class="divSearch formStyle">
+      <form class="divSearch formStyle" name="SearchForm">
         <h3 id="formHeader" class="searchHeader">Search for employees</h3>
         <h4 id="otherSittings" class="filterHeader">Filters:</h4>
         <h4 id="otherSittings" class="sortingHeader">Sorting:</h4>
@@ -85,6 +85,8 @@
           <input type="radio" name="sorting" id="without">
           <label for="without" class="listinput">Without sorting</label>
         </div>
+        <input class="formButton" id="searchButton" type="button" value="Search" onclick="ordered()">
+        <p class="outlineP"></p>
         <div id="listDiv">
 
         </div>

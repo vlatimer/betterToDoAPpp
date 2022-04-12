@@ -1,4 +1,5 @@
 const listDiv = document.querySelector("#listDiv");
+const outlineP = document.querySelector(".outlineP");
 var mainObject = [];
 class NewPerson {
   constructor(n, s, d, e, x) {
@@ -17,13 +18,15 @@ class NewPerson {
       date: this.date,
       education: this.education,
       sex: this.sex,
+      age: this.createDate.slice(6) - +this.date.slice(6),
       Time: {
         createD: this.createDate,
         createT: this.createTime,
         deleteD: this.deleteDate,
         deleteT: this.deleteTime,
       },
-      classe: this
+      classe: this,
+      deletion: false
     }
     mainObject.push(this.mainPerson);
     console.log(mainObject);
@@ -85,6 +88,7 @@ class NewPerson {
         mainObject[idOf].classe.buttonForDeley.classList.add("noButton");
         setTimeout(function () {
           mainObject[idOf].classe.buttonForDeley.style.display = "none";
+          mainObject[idOf].deletion = true;
           deletePersoneAndGetTime(mainObject[idOf].classe);
         }, 1000);
       }
@@ -120,10 +124,13 @@ function createPerson() {
     document.Person.education.checked ? true : false,
     document.Person.sex[0].checked ? true : false);
   if (person.verifyFilling()) {
+    niceText("Add one employee");
     person.makingMainDivWithElementsAndSimpleCSSClasses();
     person.fillingElementsWithContent();
     person.addingAllElementsToListOfDiv();
     person.createObject();
+  } else {
+    niceText("Incorrect input");
   }
 }
 
@@ -158,4 +165,114 @@ function getTime(date) {
   seconds = secondsZero + seconds;
   let create_time = `${hours}:${minutes}:${seconds}`;
   return create_time;
+}
+
+function search() {
+  let StatusId = document.Person.filterStatus.selectedIndex;
+  let AgesId = document.Person.filterAge.selectedIndex;
+  let EducationId = document.Person.filterEducation.selectedIndex;
+  let SexId = document.Person.filterSex.selectedIndex;
+  let status = document.Person.filterStatus.options[StatusId];
+  let age = document.Person.filterAge.options[AgesId];
+  let education = document.Person.filterEducation.options[EducationId];
+  let sex = document.Person.filterSex.options[SexId];
+  let sorting = document.Person.sorting[1].checked;
+  mainObject.forEach(function (item, index, array) {
+    if (document.Person.sorting[0].checked) {} else if (document.Person.sorting[1].checked) {
+
+    } else if (document.Person.sorting[2].checked) {
+
+    } else if (document.Person.sorting[3].checked) {
+
+    }
+  });
+}
+
+function ordered() {
+  let StatusId = document.SearchForm.filterStatus.selectedIndex;
+  let AgesId = document.SearchForm.filterAge.selectedIndex;
+  let EducationId = document.SearchForm.filterEducation.selectedIndex;
+  let SexId = document.SearchForm.filterSex.selectedIndex;
+  let status = document.SearchForm.filterStatus.options[StatusId].value;
+  let age = document.SearchForm.filterAge.options[AgesId].value;
+  let education = document.SearchForm.filterEducation.options[EducationId].value;
+  let sex = document.SearchForm.filterSex.options[SexId].value;
+  let count = 0;
+  mainObject.forEach(function (item, index, array) {
+    if (!(statusDo(status, item) && ageDo(age, item) && educationDo(education, item) && sexDo(sex, item))) {
+      item.classe.newDivElement.style.display = "none";
+    } else {
+      count++;
+      item.classe.newDivElement.style.display = "grid";
+    }
+  });
+  niceText(`Only ${count} employees found`);
+
+}
+
+function statusDo(status, obj) {
+  if (status == "all") {
+    return true;
+  }
+  if (status == "work" && !obj.deletion) {
+    return true;
+  }
+  if (status == "notWork" && obj.deletion) {
+    return true;
+  }
+  return false;
+}
+
+function ageDo(age, obj) {
+  if (age == "all") {
+
+    return true;
+  }
+  if (age == "teen" && +obj.age < 25) {
+
+    return true;
+  }
+  if (age == "grown" && (+obj.age >= 25 && +obj.age < 45)) {
+
+    return true;
+  }
+  if (age == "old" && +obj.age >= 45) {
+    return true;
+  }
+  return false;
+}
+
+function educationDo(ed, obj) {
+  if (ed == "all") {
+    return true;
+  }
+  if (ed == "educated" && obj.education) {
+
+    return true;
+  }
+  if (ed == "notEducated" && !obj.education) {
+    return true;
+  }
+  return false;
+}
+
+function sexDo(sex, obj) {
+  if (sex == "all") {
+    return true;
+  }
+  if (sex == "man" && obj.sex) {
+    return true;
+  }
+  if (sex == "woman" && !obj.sex) {
+    return true;
+  }
+  return false;
+}
+
+function niceText(text) {
+  outlineP.style.opacity = 0;
+  outlineP.innerHTML = `<span>${text}</span>`;
+  setTimeout(() => {
+    outlineP.style.opacity = 1;
+  }, 500);
 }

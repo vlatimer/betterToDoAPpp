@@ -23,6 +23,22 @@
   .sorting label {
     font-size: small;
   }
+
+  .names,
+  .birthday {
+    font-size: small;
+  }
+
+  .creationTime p,
+  .deletiontime p {
+    text-align: center;
+    font-size: small;
+  }
+
+  .creationTime span,
+  .deletiontime span {
+    font-size: 8.5px;
+  }
 }
 
 @media(max-width: 880px) {
