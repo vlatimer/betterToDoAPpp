@@ -34,19 +34,18 @@ class NewPerson {
   }
   addingAllElementsToListOfDiv() {
     this.newDivElement.prepend(this.buttonForDeley);
-    this.newOthersElement.prepend(this.sexElement);
-    this.newOthersElement.prepend(this.educatedElement);
-    this.newDivElement.prepend(this.newOthersElement);
-    this.newDivElement.prepend(this.newDeletonElement);
+    this.newDivElement.prepend(this.sexElement);
+    this.newDivElement.prepend(this.educatedElement);
+    // this.newDivElement.prepend(this.newDeletonElement);
     this.newDivElement.prepend(this.newTimeElement);
     this.newDivElement.prepend(this.newBirthElement);
     this.newDivElement.prepend(this.newPElement);
     listDiv.prepend(this.newDivElement);
   }
   fillingElementsWithContent() {
-    this.newPElement.innerHTML = `<p>${this.name}</p> <p>${this.surname}</p>`;
+    this.newPElement.innerHTML = `${this.name} ${this.surname}`;
     this.newBirthElement.innerHTML = `Age: ${this.createDate.slice(6) - +this.date.slice(6)}`;
-    this.newTimeElement.innerHTML = `<p>Create Time</p><span>${this.createDate} / ${this.createTime}</span>`;
+    this.newTimeElement.innerHTML = `<p>Create Time</p> <span>${this.createDate} / ${this.createTime}</span>`;
     this.educatedElement.innerHTML = this.education ? "Higher education" : "Secondary education";
     this.educatedElement.classList.add(`${this.education ? "high" : "low"}`);
     this.sexElement.innerHTML = this.sex ? "Man" : "Woman";
@@ -69,9 +68,6 @@ class NewPerson {
     //p for deletion time
     this.newDeletonElement = document.createElement("p");
     this.newDeletonElement.classList.add("deletiontime");
-    //div for other elements
-    this.newOthersElement = document.createElement("div");
-    this.newOthersElement.classList.add("othersElements");
     //p for education element
     this.educatedElement = document.createElement("p");
     this.educatedElement.classList.add("educatedElement");
@@ -112,6 +108,7 @@ class NewPerson {
     return false;
   }
   deletePerson() {
+    this.newDivElement.prepend(this.newDeletonElement);
     this.newDeletonElement.innerHTML = `<p>Delete Time</p><span>${this.deleteDate} / ${this.deleteTime}</span>`;
   }
 

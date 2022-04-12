@@ -26,11 +26,13 @@
 
   .names,
   .birthday {
-    font-size: small;
+    font-size: medium;
   }
 
   .creationTime p,
-  .deletiontime p {
+  .deletiontime p,
+  .educatedElement,
+  .sexElement {
     text-align: center;
     font-size: small;
   }
@@ -44,6 +46,11 @@
 @media(max-width: 880px) {
   .sorting label {
     font-size: 11px;
+  }
+
+  .names,
+  .birthday {
+    font-size: small;
   }
 }
 
@@ -104,11 +111,90 @@
   .sorting label {
     font-size: medium;
   }
+
+  .names,
+  .birthday {
+    font-size: large;
+  }
+
+  .creationTime p,
+  .deletiontime p,
+  .educatedElement,
+  .sexElement {
+    text-align: center;
+    font-size: medium;
+  }
+
+  .creationTime span,
+  .deletiontime span {
+    font-size: 10px;
+  }
+
+  .birthday {
+    grid-column: 4 / span 1;
+  }
 }
 
 @media(max-width: 550px) {
   .sorting label {
     font-size: 13px;
+  }
+
+  .names,
+  .birthday {
+    font-size: medium;
+  }
+
+  .creationTime p,
+  .deletiontime p,
+  .educatedElement,
+  .sexElement {
+    text-align: center;
+    font-size: small;
+  }
+
+  .creationTime span,
+  .deletiontime span {
+    font-size: 8.5px;
+  }
+
+  .educatedElement,
+  .sexElement {
+    font-size: small;
+  }
+}
+
+@media(max-width: 500px) {
+
+  .names,
+  .birthday {
+    font-size: 14px;
+  }
+
+  .creationTime p,
+  .deletiontime p,
+  .educatedElement,
+  .sexElement {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .creationTime span,
+  .deletiontime span {
+    font-size: 10px;
+  }
+
+  .sexElement {
+    grid-column: 5 /span 1;
+  }
+
+  .educatedElement {
+    grid-column: 3 /span 1;
+  }
+
+  .educatedElement::after {
+    height: 20px;
+    width: 20px;
   }
 }
 
@@ -137,6 +223,22 @@
 
   .sorting label {
     font-size: 11px;
+  }
+
+  .names,
+  .birthday {
+    font-size: 12px;
+  }
+
+  .birthday {
+    grid-column: 4 / span 2;
+  }
+
+  .creationTime::after,
+  .deletiontime::after {
+    height: 15px;
+    width: 15px;
+    left: -15px;
   }
 }
 
