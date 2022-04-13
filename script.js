@@ -1,10 +1,11 @@
-const listDiv = document.querySelector("#listDiv");
-const outlineP = document.querySelector(".outlineP");
+var listDiv = document.querySelector("#listDiv");
+var outlineP = document.querySelector(".outlineP");
 var mainObject = [];
+var arrayToSort = [];
 class NewPerson {
   constructor(n, s, d, e, x) {
-    this.name = n;
-    this.surname = s;
+    this.name = n.toLowerCase();
+    this.surname = s.toLowerCase();
     this.date = d;
     this.education = e;
     this.sex = x;
@@ -18,7 +19,7 @@ class NewPerson {
       date: this.date,
       education: this.education,
       sex: this.sex,
-      age: this.createDate.slice(6) - +this.date.slice(6),
+      age: InicialiseAge(this.date, this.createDate),
       Time: {
         createD: this.createDate,
         createT: this.createTime,
@@ -43,8 +44,8 @@ class NewPerson {
     listDiv.prepend(this.newDivElement);
   }
   fillingElementsWithContent() {
-    this.newPElement.innerHTML = `${this.name} ${this.surname}`;
-    this.newBirthElement.innerHTML = `Age: ${this.createDate.slice(6) - +this.date.slice(6)}`;
+    this.newPElement.innerHTML = `${this.name.charAt(0).toUpperCase() + this.name.slice(1)} ${this.surname.charAt(0).toUpperCase() + this.surname.slice(1)}`;
+    this.newBirthElement.innerHTML = `Age: ${InicialiseAge(this.date, this.createDate)}`;
     this.newTimeElement.innerHTML = `<p>Create Time</p> <span>${this.createDate} / ${this.createTime}</span>`;
     this.educatedElement.innerHTML = this.education ? "Higher education" : "Secondary education";
     this.educatedElement.classList.add(`${this.education ? "high" : "low"}`);
@@ -165,24 +166,55 @@ function getTime(date) {
 }
 
 function search() {
-  let StatusId = document.Person.filterStatus.selectedIndex;
-  let AgesId = document.Person.filterAge.selectedIndex;
-  let EducationId = document.Person.filterEducation.selectedIndex;
-  let SexId = document.Person.filterSex.selectedIndex;
-  let status = document.Person.filterStatus.options[StatusId];
-  let age = document.Person.filterAge.options[AgesId];
-  let education = document.Person.filterEducation.options[EducationId];
-  let sex = document.Person.filterSex.options[SexId];
-  let sorting = document.Person.sorting[1].checked;
-  mainObject.forEach(function (item, index, array) {
-    if (document.Person.sorting[0].checked) {} else if (document.Person.sorting[1].checked) {
-
-    } else if (document.Person.sorting[2].checked) {
-
-    } else if (document.Person.sorting[3].checked) {
-
+  ordered();
+  let todo = [];
+  if (document.SearchForm.sorting[0].checked) {
+    // console.log("start", todo);
+    arrayToSort.forEach(function (item, index, array) {
+      // console.log(todo);
+      // console.log("index", index);
+      if (index > 0) {
+        // console.log("item.name", item.name);
+        // console.log("todo[0].name", todo[0].name);
+        if (item.name < todo[0].name) {
+          todo.unshift(item);
+        } else if (item.name > todo[0].name && todo.length == 1) {
+          todo.push(item);
+        } else {
+          let constlenght = todo.length;
+          for (let i = 0; i < todo.length; i++) {
+            // console.log("item.name", item.name);
+            // console.log("todo[i].name", todo[i].name);
+            if (item.name < todo[i].name) {
+              let lastslice = todo.slice(i, todo.length);
+              let firstslice = todo.slice(0, i);
+              // console.log("lastslice", lastslice);
+              // console.log("...lastslice", ...lastslice);
+              // console.log("before", todo, todo.slice(0, i));
+              todo = [];
+              // console.log("todo", todo);
+              todo.push(...firstslice);
+              todo.push(item);
+              todo.push(...lastslice);
+              // console.log("after", todo);
+              break;
+            }
+          }
+          if (constlenght == todo.length) {
+            todo.push(item);
+          }
+        }
+      }
+      if (index == 0) {
+        todo.push(item);
+        // console.log("first", todo);
+      }
+    });
+    console.log(todo);
+    for (let i = 0; i < todo.length; i++) {
+      todo[i].newDivElement.style.order = `${i}`;
     }
-  });
+  }
 }
 
 function ordered() {
@@ -201,6 +233,7 @@ function ordered() {
     } else {
       count++;
       item.classe.newDivElement.style.display = "grid";
+      arrayToSort.push(item.classe);
     }
   });
   niceText(`Only ${count} employees found`);
@@ -272,4 +305,16 @@ function niceText(text) {
   setTimeout(() => {
     outlineP.style.opacity = 1;
   }, 500);
+}
+
+function InicialiseAge(birth, now) {
+  let age = +now.slice(6) - +birth.slice(6);
+  if (+birth.slice(3, 5) > +now.slice(3, 5)) {
+    age -= 1;
+  }
+  if (+birth.slice(3, 5) == +now.slice(3, 5)) {
+    if (+birth.slice(0, 2) > +now.slice(0, 2))
+      age -= 1;
+  }
+  return age;
 }
