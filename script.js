@@ -9,7 +9,7 @@ class NewPerson {
     this.date = d;
     this.education = e;
     this.sex = x;
-    let data = new Date();
+    var data = new Date();
     this.creatingDate(data);
   }
   createObject() {
@@ -28,7 +28,7 @@ class NewPerson {
       },
       classe: this,
       deletion: false
-    }
+    };
     mainObject.push(this.mainPerson);
     console.log(mainObject);
     this.newDivElement.id = mainObject.indexOf(this.mainPerson);
@@ -169,34 +169,23 @@ function search() {
   ordered();
   let todo = [];
   if (document.SearchForm.sorting[0].checked) {
-    // console.log("start", todo);
+    todo = [];
     arrayToSort.forEach(function (item, index, array) {
-      // console.log(todo);
-      // console.log("index", index);
       if (index > 0) {
-        // console.log("item.name", item.name);
-        // console.log("todo[0].name", todo[0].name);
-        if (item.name < todo[0].name) {
+        if (item.mainPerson.name < todo[0].mainPerson.name) {
           todo.unshift(item);
-        } else if (item.name > todo[0].name && todo.length == 1) {
+        } else if (item.mainPerson.name > todo[0].mainPerson.name && todo.length == 1) {
           todo.push(item);
         } else {
           let constlenght = todo.length;
           for (let i = 0; i < todo.length; i++) {
-            // console.log("item.name", item.name);
-            // console.log("todo[i].name", todo[i].name);
-            if (item.name < todo[i].name) {
+            if (item.mainPerson.name < todo[i].mainPerson.name) {
               let lastslice = todo.slice(i, todo.length);
               let firstslice = todo.slice(0, i);
-              // console.log("lastslice", lastslice);
-              // console.log("...lastslice", ...lastslice);
-              // console.log("before", todo, todo.slice(0, i));
               todo = [];
-              // console.log("todo", todo);
               todo.push(...firstslice);
               todo.push(item);
               todo.push(...lastslice);
-              // console.log("after", todo);
               break;
             }
           }
@@ -207,26 +196,129 @@ function search() {
       }
       if (index == 0) {
         todo.push(item);
-        // console.log("first", todo);
       }
     });
-    console.log(todo);
-    for (let i = 0; i < todo.length; i++) {
-      todo[i].newDivElement.style.order = `${i}`;
-    }
+  }
+  if (document.SearchForm.sorting[1].checked) {
+    todo = [];
+    arrayToSort.forEach(function (item, index, array) {
+      console.log(todo);
+      if (index > 0) {
+        itemMinutes = item.mainPerson.Time.createT.slice(3, 5);
+        itemSeconds = item.mainPerson.Time.createT.slice(6, 8);
+        todoMinutes = todo[0].mainPerson.Time.createT.slice(3, 5);
+        todoSeconds = todo[0].mainPerson.Time.createT.slice(6, 8);
+        if (itemMinutes < todoMinutes) {
+          todo.unshift(item);
+        } else if (itemMinutes === todoMinutes) {
+          if (itemSeconds < todoSeconds) {
+            todo.unshift(item);
+          } else if (itemSeconds === todoSeconds) {
+            todo.unshift(item);
+          } else if (itemSeconds > todoSeconds) {
+            for (let i = 0; i < todo.length; i++) {
+              if (itemSeconds < todo[i].mainPerson.Time.createT.slice(6, 8)) {
+                let lastslice = todo.slice(i, todo.length);
+                let firstslice = todo.slice(0, i);
+                todo = [];
+                todo.push(...firstslice);
+                todo.push(item);
+                todo.push(...lastslice);
+                break;
+              }
+            }
+            todo.push(item);
+          }
+        } else if (itemMinutes > todoMinutes) {
+          for (let i = 0; i < todo.length; i++) {
+            if (itemMinutes < todo[i].mainPerson.Time.createT.slice(3, 5)) {
+              let lastslice = todo.slice(i, todo.length);
+              let firstslice = todo.slice(0, i);
+              todo = [];
+              todo.push(...firstslice);
+              todo.push(item);
+              todo.push(...lastslice);
+              break;
+            }
+          }
+          todo.push(item);
+        }
+      }
+      if (index == 0) {
+        todo.push(item);
+      }
+    });
+  }
+  if (document.SearchForm.sorting[2].checked) {
+    todo = [];
+    arrayToSort.forEach(function (item, index, array) {
+      console.log(todo);
+      if (item.mainPerson.Time.deleteT == undefined) {
+        niceText("Whose only Dismissed status((");
+        return;
+      }
+      if (index > 0) {
+        itemMinutes = item.mainPerson.Time.deleteT.slice(3, 5);
+        itemSeconds = item.mainPerson.Time.deleteT.slice(6, 8);
+        todoMinutes = todo[0].mainPerson.Time.deleteT.slice(3, 5);
+        todoSeconds = todo[0].mainPerson.Time.deleteT.slice(6, 8);
+        if (itemMinutes < todoMinutes) {
+          todo.unshift(item);
+        } else if (itemMinutes === todoMinutes) {
+          if (itemSeconds < todoSeconds) {
+            todo.unshift(item);
+          } else if (itemSeconds === todoSeconds) {
+            todo.unshift(item);
+          } else if (itemSeconds > todoSeconds) {
+            for (let i = 0; i < todo.length; i++) {
+              if (itemSeconds < todo[i].mainPerson.Time.deleteT.slice(6, 8)) {
+                let lastslice = todo.slice(i, todo.length);
+                let firstslice = todo.slice(0, i);
+                todo = [];
+                todo.push(...firstslice);
+                todo.push(item);
+                todo.push(...lastslice);
+                break;
+              }
+            }
+            todo.push(item);
+          }
+        } else if (itemMinutes > todoMinutes) {
+          for (let i = 0; i < todo.length; i++) {
+            if (itemMinutes < todo[i].mainPerson.Time.deleteT.slice(3, 5)) {
+              let lastslice = todo.slice(i, todo.length);
+              let firstslice = todo.slice(0, i);
+              todo = [];
+              todo.push(...firstslice);
+              todo.push(item);
+              todo.push(...lastslice);
+              break;
+            }
+          }
+          todo.push(item);
+        }
+      }
+      if (index == 0) {
+        todo.push(item);
+      }
+    });
+  }
+  for (let i = 0; i < todo.length; i++) {
+    todo[i].newDivElement.style.order = `${i}`;
   }
 }
 
 function ordered() {
-  let StatusId = document.SearchForm.filterStatus.selectedIndex;
-  let AgesId = document.SearchForm.filterAge.selectedIndex;
-  let EducationId = document.SearchForm.filterEducation.selectedIndex;
-  let SexId = document.SearchForm.filterSex.selectedIndex;
-  let status = document.SearchForm.filterStatus.options[StatusId].value;
-  let age = document.SearchForm.filterAge.options[AgesId].value;
-  let education = document.SearchForm.filterEducation.options[EducationId].value;
-  let sex = document.SearchForm.filterSex.options[SexId].value;
-  let count = 0;
+  var StatusId = document.SearchForm.filterStatus.selectedIndex;
+  var AgesId = document.SearchForm.filterAge.selectedIndex;
+  var EducationId = document.SearchForm.filterEducation.selectedIndex;
+  var SexId = document.SearchForm.filterSex.selectedIndex;
+  var status = document.SearchForm.filterStatus.options[StatusId].value;
+  var age = document.SearchForm.filterAge.options[AgesId].value;
+  var education = document.SearchForm.filterEducation.options[EducationId].value;
+  var sex = document.SearchForm.filterSex.options[SexId].value;
+  var count = 0;
+  arrayToSort = [];
   mainObject.forEach(function (item, index, array) {
     if (!(statusDo(status, item) && ageDo(age, item) && educationDo(education, item) && sexDo(sex, item))) {
       item.classe.newDivElement.style.display = "none";
