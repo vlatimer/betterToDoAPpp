@@ -44,7 +44,7 @@ class NewPerson {
     listDiv.prepend(this.newDivElement);
   }
   fillingElementsWithContent() {
-    this.newPElement.innerHTML = `${this.name.charAt(0).toUpperCase() + this.name.slice(1)} ${this.surname.charAt(0).toUpperCase() + this.surname.slice(1)}`;
+    this.newPElement.innerHTML = ` ${this.surname.charAt(0).toUpperCase() + this.surname.slice(1)} ${this.name.charAt(0).toUpperCase() + this.name.slice(1)}`;
     this.newBirthElement.innerHTML = `Age: ${InicialiseAge(this.date, this.createDate)}`;
     this.newTimeElement.innerHTML = `<p>Create Time</p> <span>${this.createDate} / ${this.createTime}</span>`;
     this.educatedElement.innerHTML = this.education ? "Higher education" : "Secondary education";
@@ -172,14 +172,14 @@ function search() {
     todo = [];
     arrayToSort.forEach(function (item, index, array) {
       if (index > 0) {
-        if (item.mainPerson.name < todo[0].mainPerson.name) {
+        if (item.mainPerson.surname < todo[0].mainPerson.surname) {
           todo.unshift(item);
-        } else if (item.mainPerson.name > todo[0].mainPerson.name && todo.length == 1) {
+        } else if (item.mainPerson.surname > todo[0].mainPerson.surname && todo.length == 1) {
           todo.push(item);
         } else {
           let constlenght = todo.length;
           for (let i = 0; i < todo.length; i++) {
-            if (item.mainPerson.name < todo[i].mainPerson.name) {
+            if (item.mainPerson.surname < todo[i].mainPerson.surname) {
               let lastslice = todo.slice(i, todo.length);
               let firstslice = todo.slice(0, i);
               todo = [];
@@ -204,20 +204,39 @@ function search() {
     arrayToSort.forEach(function (item, index, array) {
       console.log(todo);
       if (index > 0) {
-        itemMinutes = item.mainPerson.Time.createT.slice(3, 5);
-        itemSeconds = item.mainPerson.Time.createT.slice(6, 8);
-        todoMinutes = todo[0].mainPerson.Time.createT.slice(3, 5);
-        todoSeconds = todo[0].mainPerson.Time.createT.slice(6, 8);
-        if (itemMinutes < todoMinutes) {
+        let itemHours = item.mainPerson.Time.createT.slice(0, 2);
+        let itemMinutes = item.mainPerson.Time.createT.slice(3, 5);
+        let itemSeconds = item.mainPerson.Time.createT.slice(6, 8);
+        let todoHours = todo[0].mainPerson.Time.createT.slice(0, 2);
+        let todoMinutes = todo[0].mainPerson.Time.createT.slice(3, 5);
+        let todoSeconds = todo[0].mainPerson.Time.createT.slice(6, 8);
+        if (itemHours < todoHours) {
           todo.unshift(item);
-        } else if (itemMinutes === todoMinutes) {
-          if (itemSeconds < todoSeconds) {
+        } else if (itemHours === todoHours) {
+          if (itemMinutes < todoMinutes) {
             todo.unshift(item);
-          } else if (itemSeconds === todoSeconds) {
-            todo.unshift(item);
-          } else if (itemSeconds > todoSeconds) {
+          } else if (itemMinutes === todoMinutes) {
+            if (itemSeconds < todoSeconds) {
+              todo.unshift(item);
+            } else if (itemSeconds === todoSeconds) {
+              todo.unshift(item);
+            } else if (itemSeconds > todoSeconds) {
+              for (let i = 0; i < todo.length; i++) {
+                if (itemSeconds < todo[i].mainPerson.Time.createT.slice(6, 8)) {
+                  let lastslice = todo.slice(i, todo.length);
+                  let firstslice = todo.slice(0, i);
+                  todo = [];
+                  todo.push(...firstslice);
+                  todo.push(item);
+                  todo.push(...lastslice);
+                  break;
+                }
+              }
+              todo.push(item);
+            }
+          } else if (itemMinutes > todoMinutes) {
             for (let i = 0; i < todo.length; i++) {
-              if (itemSeconds < todo[i].mainPerson.Time.createT.slice(6, 8)) {
+              if (itemMinutes < todo[i].mainPerson.Time.createT.slice(3, 5)) {
                 let lastslice = todo.slice(i, todo.length);
                 let firstslice = todo.slice(0, i);
                 todo = [];
@@ -229,9 +248,9 @@ function search() {
             }
             todo.push(item);
           }
-        } else if (itemMinutes > todoMinutes) {
+        } else if (itemHours > todoHours) {
           for (let i = 0; i < todo.length; i++) {
-            if (itemMinutes < todo[i].mainPerson.Time.createT.slice(3, 5)) {
+            if (itemHours < todo[i].mainPerson.Time.createT.slice(0, 2)) {
               let lastslice = todo.slice(i, todo.length);
               let firstslice = todo.slice(0, i);
               todo = [];
@@ -258,20 +277,61 @@ function search() {
         return;
       }
       if (index > 0) {
-        itemMinutes = item.mainPerson.Time.deleteT.slice(3, 5);
-        itemSeconds = item.mainPerson.Time.deleteT.slice(6, 8);
-        todoMinutes = todo[0].mainPerson.Time.deleteT.slice(3, 5);
-        todoSeconds = todo[0].mainPerson.Time.deleteT.slice(6, 8);
-        if (itemMinutes < todoMinutes) {
+        let itemHours = item.mainPerson.Time.deleteT.slice(0, 2);
+        let itemMinutes = item.mainPerson.Time.deleteT.slice(3, 5);
+        let itemSeconds = item.mainPerson.Time.deleteT.slice(6, 8);
+        let todoHours = todo[0].mainPerson.Time.deleteT.slice(0, 2);
+        let todoMinutes = todo[0].mainPerson.Time.deleteT.slice(3, 5);
+        let todoSeconds = todo[0].mainPerson.Time.deleteT.slice(6, 8);
+        // console.log("itemHours,itemMinutes,itemSeconds,todoHours,todoMinutes,todoSeconds");
+        // console.log(itemHours, itemMinutes, itemSeconds, todoHours, todoMinutes, todoSeconds);
+        // console.log("itemHours < todoHours");
+        // console.log(itemHours < todoHours);
+        // console.log("itemHours === todoHours");
+        // console.log(itemHours === todoHours);
+        // console.log("itemHours > todoHours");
+        // console.log(itemHours > todoHours);
+        if (itemHours < todoHours) {
           todo.unshift(item);
-        } else if (itemMinutes === todoMinutes) {
-          if (itemSeconds < todoSeconds) {
+        } else if (itemHours === todoHours) {
+          // console.log("itemMinutes < todoMinutes");
+          // console.log(itemMinutes < todoMinutes);
+          // console.log("itemMinutes === todoMinutes");
+          // console.log(itemMinutes === todoMinutes);
+          // console.log("itemMinutes > todoMinutes");
+          // console.log(itemMinutes > todoMinutes);
+          if (itemMinutes < todoMinutes) {
             todo.unshift(item);
-          } else if (itemSeconds === todoSeconds) {
-            todo.unshift(item);
-          } else if (itemSeconds > todoSeconds) {
+          } else if (itemMinutes === todoMinutes) {
+            // console.log("itemSeconds < todoSeconds");
+            // console.log(itemSeconds < todoSeconds);
+            // console.log("itemSeconds === todoSeconds");
+            // console.log(itemSeconds === todoSeconds);
+            // console.log("itemSeconds > todoSeconds");
+            // console.log(itemSeconds > todoSeconds);
+            if (itemSeconds < todoSeconds) {
+              todo.unshift(item);
+            } else if (itemSeconds === todoSeconds) {
+              todo.unshift(item);
+            } else if (itemSeconds > todoSeconds) {
+              for (let i = 0; i < todo.length; i++) {
+                if (itemSeconds < todo[i].mainPerson.Time.deleteT.slice(6, 8)) {
+                  let lastslice = todo.slice(i, todo.length);
+                  let firstslice = todo.slice(0, i);
+                  todo = [];
+                  todo.push(...firstslice);
+                  todo.push(item);
+                  todo.push(...lastslice);
+                  break;
+                }
+              }
+              todo.push(item);
+            }
+          } else if (itemMinutes > todoMinutes) {
+            // console.log(todo[i].mainPerson.Time.deleteT.slice(3, 5));
             for (let i = 0; i < todo.length; i++) {
-              if (itemSeconds < todo[i].mainPerson.Time.deleteT.slice(6, 8)) {
+              if (itemMinutes < todo[i].mainPerson.Time.deleteT.slice(3, 5)) {
+                // console.log("Do todo");
                 let lastslice = todo.slice(i, todo.length);
                 let firstslice = todo.slice(0, i);
                 todo = [];
@@ -283,9 +343,9 @@ function search() {
             }
             todo.push(item);
           }
-        } else if (itemMinutes > todoMinutes) {
+        } else if (itemHours > todoHours) {
           for (let i = 0; i < todo.length; i++) {
-            if (itemMinutes < todo[i].mainPerson.Time.deleteT.slice(3, 5)) {
+            if (itemHours < todo[i].mainPerson.Time.deleteT.slice(0, 2)) {
               let lastslice = todo.slice(i, todo.length);
               let firstslice = todo.slice(0, i);
               todo = [];
