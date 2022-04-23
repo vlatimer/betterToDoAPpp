@@ -17,29 +17,29 @@
 <body>
   <section class="app">
     <div class="box">
-      <form class="divCreate formStyle" name="Person">
-        <h3 id="formHeader" class="formHeader">Adding employees</h3>
-        <input id="textInput" type="text" placeholder="Name" name="personname">
-        <input id="textInput" type="text" placeholder="Surname" name="personsurname">
-        <input id="textInput" type="text" placeholder="01.01.2001" name="persondate">
-        <h4 id="otherSittings" class="otherSittings">Other settings:</h4>
-        <div id="educationdiv">
-          <input id="checkboxInput" type="checkbox" name="education">
+      <form class="divCreate formStyle" name="create">
+        <h3 class="formHeader ">Adding employees</h3>
+        <input class="text-input" type="text" placeholder="Name" name="createName">
+        <input class="text-input" type="text" placeholder="Surname" name="createSurname">
+        <input class="text-input" type="text" placeholder="01.01.2001" name="createDate">
+        <h4 class="other-sittings">Other settings:</h4>
+        <div class="education-box">
+          <input class="education-checkbox" type="checkbox" name="createEducation" id="education">
           <label for="education">Education</label>
         </div>
-        <div id="sex">
-          <input type="radio" name="sex" id="man" checked>
+        <div class="gender-box">
+          <input type="radio" name="createGender" value="man" checked id="man">
           <label for="man">Man</label>
-          <input type="radio" name="sex" id="woman">
+          <input type="radio" name="createGender" value="woman" id="woman">
           <label for="woman">Woman</label>
         </div>
-        <input id="buttonInput" class="formButton" type="button" value="ADD" onclick="createPerson()">
-        <input id="resetInput" class="formButton" type="reset" value="RESET">
+        <input class="form-button button-input" type="reset" value="ADD" onclick="createPerson()">
+        <input class="form-button reset-input" type="reset" value="RESET">
       </form>
     </div>
     <div class="box">
       <form class="divSearch formStyle" name="SearchForm">
-        <h3 id="formHeader" class="searchHeader">Search for employees</h3>
+        <h3 class="searchHeader">Search for employees</h3>
         <h4 id="otherSittings" class="filterHeader">Filters:</h4>
         <h4 id="otherSittings" class="sortingHeader">Sorting:</h4>
         <div id="filterDiv" class="statusDiv">
@@ -85,14 +85,15 @@
           <input type="radio" name="sorting" id="without" checked>
           <label for="without" class="listinput">Without sorting</label>
         </div>
-        <input class="formButton" id="searchButton" type="button" value="Search" onclick="search()">
+        <input class="form-button" id="searchButton" type="button" value="Search" onclick="search()">
         <p class="outlineP"></p>
         <div id="listDiv">
 
         </div>
       </form>
     </div>
-    <script src="./script.js"></script>
+    <script src="./Computer.js"></script>
+    <!-- <script src="./script.js"></script> -->
 </body>
 
 </html>

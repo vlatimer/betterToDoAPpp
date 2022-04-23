@@ -1,9 +1,9 @@
 @media (max-width: 1000px) {
-  #formHeader {
+  h3 {
     font-size: x-large;
   }
 
-  #otherSittings {
+  h4 {
     font-size: medium;
   }
 
@@ -80,29 +80,29 @@
     grid-template: var(--border-for-gridscreen) repeat(3, 2fr) var(--border-for-gridscreen) / var(--border-for-gridscreen) repeat(4, 1fr) var(--border-for-gridscreen);
   }
 
-  #formHeader {
+  h3 {
     font-size: large;
   }
 
-  #educationdiv #checkboxInput {
+  .education-box .education-checkbox {
     height: 25px;
     width: 25px;
   }
 
-  #educationdiv label {
+  .education-box label {
     font-size: 18px;
   }
 
-  #sex input {
+  .gender-box input {
     height: 25px;
     width: 25px;
   }
 
-  #sex label {
+  .gender-box label {
     font-size: 16px;
   }
 
-  .formButton {
+  .form-button {
     width: 100px;
     height: 30px;
     font-size: medium;
@@ -203,15 +203,15 @@
     --border-for-gridscreen: 12.5px;
   }
 
-  #educationdiv label {
+  .education-box label {
     font-size: 14px;
   }
 
-  #otherSittings {
+  h4 {
     font-size: small;
   }
 
-  .formButton {
+  .form-button {
     width: 80px;
     font-size: small;
   }
