@@ -7,20 +7,20 @@
     font-size: medium;
   }
 
-  #filterDiv p {
+  .filter-box p {
     font-size: small;
   }
 
-  #filterDiv select {
+  .filter-box select {
     width: 80px;
     font-size: 12px;
   }
 
-  .sorting {
+  .sort {
     grid-template: repeat(4, 25%) / 20px 70%;
   }
 
-  .sorting label {
+  .sort label {
     font-size: small;
   }
 
@@ -44,7 +44,7 @@
 }
 
 @media(max-width: 880px) {
-  .sorting label {
+  .sort label {
     font-size: 11px;
   }
 
@@ -70,7 +70,7 @@
     grid-template: var(--border-for-gridscreen) repeat(2, 2fr) var(--border-for-gridscreen) / var(--border-for-gridscreen) repeat(4, 1fr) var(--border-for-gridscreen);
   }
 
-  .divCreate {
+  .create-box {
     grid-column: 2 / span 4;
     grid-row: 2 / span 2;
   }
@@ -93,12 +93,12 @@
     font-size: 18px;
   }
 
-  .gender-box input {
+  .sex-box input {
     height: 25px;
     width: 25px;
   }
 
-  .gender-box label {
+  .sex-box label {
     font-size: 16px;
   }
 
@@ -108,7 +108,7 @@
     font-size: medium;
   }
 
-  .sorting label {
+  .sort label {
     font-size: medium;
   }
 
@@ -216,7 +216,7 @@
     font-size: small;
   }
 
-  #filterDiv select {
+  .filter-box select {
     width: 60px;
     font-size: 8px;
   }
@@ -243,7 +243,7 @@
 }
 
 @media (max-width:350px) {
-  #filterDiv select {
+  .filter-box select {
     width: 40px;
     font-size: 8px;
   }

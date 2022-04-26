@@ -1,7 +1,19 @@
 /* Elements of first grid #name */
-.formHeader {
+.create-header {
   grid-column: 2/ span 2;
 }
+
+/* .text-input.first {
+  grid-row: 2 / span 1;
+}
+
+.text-input.second {
+  grid-row: 3 / span 1;
+}
+
+.text-input.third {
+  grid-row: 4 / span 1;
+} */
 
 .text-input {
   background-color: var(--background-color);
@@ -67,14 +79,14 @@
   font-size: 20px;
 }
 
-.gender-box {
+.sex-box {
   display: grid;
   grid-column: 3 / span 1;
   grid-row: 6 / span 1;
   grid-template: 40px 40px / 40px minmax(40px, 100px);
 }
 
-.gender-box input {
+.sex-box input {
   outline: none;
   transition: all 0.25s ease-out 0s;
   -webkit-appearance: none;
@@ -88,18 +100,18 @@
   filter: drop-shadow(0 0 15px #FF5733);
 }
 
-.gender-box input:not(:checked) {
+.sex-box input:not(:checked) {
   cursor: pointer;
 }
 
-.gender-box input:checked {
+.sex-box input:checked {
   background-size: 100% 100%;
   background-image: url(./Image/checked.png);
   background-color: #53FF02;
   filter: drop-shadow(0 0 15px #53FF02);
 }
 
-.gender-box label {
+.sex-box label {
   justify-self: start;
   align-self: center;
   margin: unset;

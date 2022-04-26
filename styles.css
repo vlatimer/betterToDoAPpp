@@ -34,13 +34,13 @@ body::-webkit-scrollbar {
   grid-template: var(--border-for-gridscreen) repeat(3, 2fr) var(--border-for-gridscreen) / var(--border-for-gridscreen) repeat(4, 1fr) var(--border-for-gridscreen);
 }
 
-.formStyle {
+.form-box {
   background-color: var(--background-color);
   display: grid;
 }
 
 /* First grid  */
-.divCreate {
+.create-box {
   transition: 0.5s all ease-in 0s;
   position: relative;
   width: 100%;
@@ -50,7 +50,7 @@ body::-webkit-scrollbar {
   grid-template: repeat(8, 1fr) / 10% repeat(2, 40%) 10%;
 }
 
-.formStyle * {
+.form-box * {
   color: white;
   margin: auto;
 }
@@ -63,7 +63,7 @@ h4 {
   font-size: x-large;
 }
 
-.divSearch {
+.search-box {
   position: relative;
   border-radius: 20px;
   width: 100%;

@@ -17,20 +17,20 @@
 <body>
   <section class="app">
     <div class="box">
-      <form class="divCreate formStyle" name="create">
-        <h3 class="formHeader ">Adding employees</h3>
-        <input class="text-input" type="text" placeholder="Name" name="createName">
-        <input class="text-input" type="text" placeholder="Surname" name="createSurname">
-        <input class="text-input" type="text" placeholder="01.01.2001" name="createDate">
+      <form class="form-box create-box" name="create">
+        <h3 class="create-header">Adding employees</h3>
+        <input class="text-input" type="text" placeholder="Name" name="name">
+        <input class="text-input" type="text" placeholder="Surname" name="surname">
+        <input class="text-input" type="text" placeholder="01.01.2001" name="date">
         <h4 class="other-sittings">Other settings:</h4>
         <div class="education-box">
-          <input class="education-checkbox" type="checkbox" name="createEducation" id="education">
+          <input class="education-checkbox" type="checkbox" name="education" id="education">
           <label for="education">Education</label>
         </div>
-        <div class="gender-box">
-          <input type="radio" name="createGender" value="man" checked id="man">
+        <div class="sex-box">
+          <input type="radio" name="sex" value="man" checked id="man">
           <label for="man">Man</label>
-          <input type="radio" name="createGender" value="woman" id="woman">
+          <input type="radio" name="sex" value="woman" id="woman">
           <label for="woman">Woman</label>
         </div>
         <input class="form-button button-input" type="reset" value="ADD" onclick="createPerson()">
@@ -38,54 +38,54 @@
       </form>
     </div>
     <div class="box">
-      <form class="divSearch formStyle" name="SearchForm">
-        <h3 class="searchHeader">Search for employees</h3>
-        <h4 id="otherSittings" class="filterHeader">Filters:</h4>
-        <h4 id="otherSittings" class="sortingHeader">Sorting:</h4>
-        <div id="filterDiv" class="statusDiv">
+      <form class="form-box search-box" name="search">
+        <h3 class="search-header">Search for employees</h3>
+        <h4 class="filter-header">Filters:</h4>
+        <h4 class="sorting-header">Sorting:</h4>
+        <div class="status-select filter-box">
           <p>Status:</p>
-          <select name="filterStatus">
+          <select name="statusName">
             <option value="all">All</option>
             <option value="work">Working</option>
             <option value="notWork">Dismissed</option>
           </select>
         </div>
-        <div id="filterDiv" class="ageDiv">
+        <div class="age-select filter-box">
           <p>Ages:</p>
-          <select name="filterAge">
+          <select name="ageName">
             <option value="all">All</option>
             <option value="teen">Up to 25</option>
             <option value="grown">From 25 to 45</option>
             <option value="old">From 45</option>
           </select>
         </div>
-        <div id="filterDiv" class="educationDiv">
+        <div class="education-select filter-box">
           <p>Education:</p>
-          <select name="filterEducation">
+          <select name="educationName">
             <option value="all">Any</option>
             <option value="educated">Higher</option>
             <option value="notEducated">Medium</option>
           </select>
         </div>
-        <div id="filterDiv" class="sexDiv">
+        <div class="sex-select filter-box">
           <p>Gender:</p>
-          <select name="filterSex">
+          <select name="sexName">
             <option value="all">All</option>
             <option value="man">Man</option>
             <option value="woman">Woman</option>
           </select>
         </div>
-        <div class="sorting">
+        <div class="sort">
           <input type="radio" name="sorting" id="alfebet">
-          <label for="alfebet" class="listinput">Alphabetically</label>
+          <label for="alfebet" class="list-input">Alphabetically</label>
           <input type="radio" name="sorting" id="creation">
-          <label for="creation" class="listinput">Creation time</label>
+          <label for="creation" class="list-input">Creation time</label>
           <input type="radio" name="sorting" id="deletion">
-          <label for="deletion" class="listinput">Deletion time</label>
+          <label for="deletion" class="list-input">Deletion time</label>
           <input type="radio" name="sorting" id="without" checked>
-          <label for="without" class="listinput">Without sorting</label>
+          <label for="without" class="list-input">Without sorting</label>
         </div>
-        <input class="form-button" id="searchButton" type="button" value="Search" onclick="search()">
+        <input class="form-button search-button" type="button" value="Search" onclick="search()">
         <p class="outlineP"></p>
         <div id="listDiv">
 

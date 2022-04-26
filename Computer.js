@@ -2,19 +2,14 @@ class Computer {
   constructor() {
     //pass
   }
-  getPersonName() {
-    return document.create.createName.value;
-  }
-  getPersonSurName() {
-    return document.create.createSurname.value;
-  }
-  getPersonDate() {
-    return document.create.createDate.value;
-  }
-  getPersonEducation() {
-    return document.create.createEducation.value;
-  }
-  getPersonGender() {
-    return document.create.createGender.value;
+  // get value of element name -> {prop}
+  // in form name -> {form} or defolt ** name == 'create' 
+  getFormElementData(prop, form = 'create') {
+    try {
+      return document[form][prop].value;
+    } catch (error) {
+      console.log(`[Computer]:: getFormElementData() return \n${error.name} \n${error.message}`);
+      return '';
+    }
   }
 }
