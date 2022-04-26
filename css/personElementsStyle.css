@@ -3,23 +3,11 @@
   grid-column: 2/ span 2;
 }
 
-/* .text-input.first {
-  grid-row: 2 / span 1;
-}
-
-.text-input.second {
-  grid-row: 3 / span 1;
-}
-
-.text-input.third {
-  grid-row: 4 / span 1;
-} */
-
 .text-input {
   background-color: var(--background-color);
-  border: 5px solid #5B33FF;
+  border: 3px solid var(--second-color);
   transition: 0.5s all ease-in 0s;
-  border-radius: 20px;
+  border-radius: 15px;
   text-align: center;
   position: relative;
   outline: none;
@@ -29,14 +17,18 @@
 }
 
 .text-input:focus {
-  filter: drop-shadow(0 0 15px #53FF02);
+  filter: drop-shadow(0 0 5px var(--corect-color));
   width: 80%;
-  border-color: #53FF02;
+  border-color: var(--corect-color);
+}
+
+.text-input:focus::-webkit-input-placeholder {
+  color: transparent;
 }
 
 .text-input::-webkit-input-placeholder {
   text-align: center;
-  color: white;
+  color: var(--info-color);
 }
 
 
@@ -53,27 +45,29 @@
 }
 
 .education-checkbox {
-  outline: none;
   cursor: pointer;
   margin: 10px;
   width: 30px;
   height: 30px;
   -webkit-appearance: none;
-  background-color: #FF5733;
+  background-color: rgb(63, 60, 60);
   background-size: 100% 100%;
-  background-image: url(./Image/x-mark.png);
-  filter: drop-shadow(0px 0px 15px #FF5733);
   border-radius: 20px;
-  transition: all 1s ease-out 0s;
+  transition: all 0.35s ease-out 0s;
+}
+
+.education-checkbox:hover {
+  background-color: #416730;
 }
 
 .education-checkbox:checked {
   border: none;
   background-size: 100% 100%;
-  background-color: #53FF02;
+  background-color: var(--corect-color);
   background-image: url(./Image/checked.png);
-  filter: drop-shadow(0px 0px 15px #53FF02);
+  filter: drop-shadow(0px 0px 10px var(--corect-color));
 }
+
 
 .education-checkbox+label {
   font-size: 20px;
@@ -84,31 +78,6 @@
   grid-column: 3 / span 1;
   grid-row: 6 / span 1;
   grid-template: 40px 40px / 40px minmax(40px, 100px);
-}
-
-.sex-box input {
-  outline: none;
-  transition: all 0.25s ease-out 0s;
-  -webkit-appearance: none;
-  width: 30px;
-  height: 30px;
-  background-color: azure;
-  border-radius: 50%;
-  background-size: 100% 100%;
-  background-image: url(./Image/x-mark.png);
-  background-color: #FF5733;
-  filter: drop-shadow(0 0 15px #FF5733);
-}
-
-.sex-box input:not(:checked) {
-  cursor: pointer;
-}
-
-.sex-box input:checked {
-  background-size: 100% 100%;
-  background-image: url(./Image/checked.png);
-  background-color: #53FF02;
-  filter: drop-shadow(0 0 15px #53FF02);
 }
 
 .sex-box label {
@@ -125,23 +94,20 @@
   height: 35px;
   width: 55%;
   cursor: pointer;
-  color: white;
+  color: var(--first-color);
   background-color: var(--background-color);
-  border: 5px solid #5B33FF;
-  border-radius: 20px;
-  box-shadow: 0 5px 0 gray;
-  filter: drop-shadow(0 0 7px #5B33FF);
+  border: 3px solid var(--second-color);
+  border-radius: 10px;
 }
 
 .form-button:hover {
-  top: 3px;
-  box-shadow: 0 2px 0 gray;
+  letter-spacing: 1.2px;
+  filter: drop-shadow(0 0 7px var(--second-color));
 }
 
 .form-button:focus {
-  box-shadow: none;
-  border-color: #53FF02;
-  filter: drop-shadow(0 0 7px #53FF02);
+  border-color: var(--corect-color);
+  filter: drop-shadow(0 0 7px var(--corect-color));
 }
 
 .button-input {

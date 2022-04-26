@@ -13,30 +13,29 @@
 }
 
 .filter-box select {
-  transition: 0.5s all ease-out 0s;
-  cursor: pointer;
   outline: none;
+  transition: 0.2s all ease-out 0s;
+  cursor: pointer;
   position: relative;
   background-color: rgb(57, 53, 53);
-  border: 2.5px solid #5B33FF;
-  box-shadow: 0 5px 0 gray;
-  border-radius: 20px;
-  text-align: center;
-  width: 100px;
+  border: 2px solid var(--second-color);
+  border-radius: 5px;
+  text-align: start;
+  width: 110px;
   height: 30px;
   margin-top: 2.5px;
-  -webkit-appearance: none;
 }
 
 .filter-box select:hover {
-  top: 3px;
-  box-shadow: 0 2px 0 gray;
+  letter-spacing: 0.5px;
+  border-color: #b5a9e3;
 }
 
 .filter-box select:focus {
+  color: rgb(78, 77, 77);
+  background-color: rgb(230, 227, 227);
   box-shadow: none;
-  border-color: #53FF02;
-  filter: drop-shadow(0 0 7px #53FF02);
+  border-color: #b5a9e3;
 }
 
 .status-select {
@@ -72,7 +71,7 @@
   grid-row: 3 / span 2
 }
 
-.sort input[type="radio"] {
+input[type="radio"] {
   cursor: pointer;
   position: relative;
   margin-right: 10px;
@@ -85,12 +84,12 @@
   background-size: 100% 100%;
 }
 
-.sort input:hover {
+input[type="radio"]:hover {
   background-color: #416730;
 }
 
-.sort input:checked:before {
-  background-color: #53FF02;
+input[type="radio"]:checked:before {
+  background-color: var(--corect-color);
   text-align: center;
   content: '';
   display: block;
@@ -100,11 +99,11 @@
   top: 50%;
   left: 50%;
   border-radius: 20px;
-  border: 2px solid #53FF02;
+  border: 2px solid var(--corect-color);
   margin-top: -8px;
   margin-left: -8px;
   animation: radioAnimation 0.5s ease-in-out 0s 1;
-  filter: drop-shadow(0 0 20px #98ff68);
+  filter: drop-shadow(0 0 20px var(--corect-color));
 }
 
 @keyframes radioAnimation {
@@ -112,19 +111,19 @@
     filter: none;
     border-color: transparent;
     background-color: transparent;
-    border-top-color: #53FF02;
+    border-top-color: var(--corect-color);
     transform: rotate(0deg);
   }
 
   99% {
     border-color: transparent;
-    border-top-color: #53FF02;
+    border-top-color: var(--corect-color);
     background-color: black;
     transform: rotate(360deg);
   }
 
   100% {
-    background-color: #53FF02;
+    background-color: var(--corect-color);
   }
 }
 

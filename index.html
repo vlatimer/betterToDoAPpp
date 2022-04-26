@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TodoApp</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="personElementsStyle.css">
-  <link rel="stylesheet" href="personSearchStyle.css">
-  <link rel="stylesheet" href="personSearchStyle.css">
-  <link rel="stylesheet" href="newElementStyle.css">
-  <link rel="stylesheet" href="media8.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/personElementsStyle.css">
+  <link rel="stylesheet" href="./css/personSearchStyle.css">
+  <link rel="stylesheet" href="./css/newElementStyle.css">
+  <link rel="stylesheet" href="./css/newElementStyle.css">
+  <link rel="stylesheet" href="./css/media8.css">
 </head>
 
 <body>
@@ -43,16 +43,16 @@
         <h4 class="filter-header">Filters:</h4>
         <h4 class="sorting-header">Sorting:</h4>
         <div class="status-select filter-box">
-          <p>Status:</p>
-          <select name="statusName">
+          <label for="status-id">Status:</label>
+          <select name="statusName" id="status-id">
             <option value="all">All</option>
             <option value="work">Working</option>
             <option value="notWork">Dismissed</option>
           </select>
         </div>
         <div class="age-select filter-box">
-          <p>Ages:</p>
-          <select name="ageName">
+          <label for="age-id">Ages:</label>
+          <select name="ageName" id="age-id">
             <option value="all">All</option>
             <option value="teen">Up to 25</option>
             <option value="grown">From 25 to 45</option>
@@ -60,16 +60,16 @@
           </select>
         </div>
         <div class="education-select filter-box">
-          <p>Education:</p>
-          <select name="educationName">
+          <label for="education-id">Education:</label>
+          <select name="educationName" id="education-id">
             <option value="all">Any</option>
             <option value="educated">Higher</option>
             <option value="notEducated">Medium</option>
           </select>
         </div>
         <div class="sex-select filter-box">
-          <p>Gender:</p>
-          <select name="sexName">
+          <label for="sex-id">Gender:</label>
+          <select name="sexName" id="sex-id">
             <option value="all">All</option>
             <option value="man">Man</option>
             <option value="woman">Woman</option>
@@ -92,8 +92,8 @@
         </div>
       </form>
     </div>
-    <script src="./Computer.js"></script>
-    <!-- <script src="./script.js"></script> -->
+    <script src="./js/Computer.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

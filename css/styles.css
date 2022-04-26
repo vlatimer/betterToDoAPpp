@@ -4,10 +4,19 @@
   font-family: sans-serif;
 }
 
+label:hover {
+  cursor: pointer;
+}
+
 :root {
   --background-color: rgba(0, 0, 0, 0.9);
   --background-color-for-first-form: rgba(0, 0, 0, 0.86);
   --border-for-gridscreen: 35px;
+  --first-color: white;
+  --second-color: #7e5ffb;
+  --info-color: rgb(102, 92, 92);
+  --error-color: #FF5733;
+  --corect-color: #53FF02;
 }
 
 body::-webkit-scrollbar {
@@ -51,7 +60,7 @@ body::-webkit-scrollbar {
 }
 
 .form-box * {
-  color: white;
+  color: var(--first-color);
   margin: auto;
 }
 
