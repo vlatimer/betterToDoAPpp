@@ -64,7 +64,7 @@
   border: none;
   background-size: 100% 100%;
   background-color: var(--corect-color);
-  background-image: url(./Image/checked.png);
+  background-image: url(../Image/checked.png);
   filter: drop-shadow(0px 0px 10px var(--corect-color));
 }
 

@@ -51,7 +51,7 @@
   height: 20px;
   background-color: var(--first-color);
   background-size: 100% 100%;
-  background-image: url(./Image/alarm-clock.png);
+  background-image: url(../Image/alarm-clock.png);
 }
 
 .deletiontime::after {
@@ -92,22 +92,22 @@
 
 .educatedElement.high::after {
   background-color: rgb(76, 222, 76);
-  background-image: url(./Image/science.png);
+  background-image: url(../Image/science.png);
 }
 
 .educatedElement.low::after {
   background-color: rgb(241, 180, 65);
-  background-image: url(./Image/school.png);
+  background-image: url(../Image/school.png);
 }
 
 .sexElement.man::after {
-  background-image: url(./Image/young-man.png);
+  background-image: url(../Image/young-man.png);
   background-color: rgb(118, 202, 247);
 }
 
 .sexElement.woman::after {
   background-color: rgb(211, 118, 247);
-  background-image: url(./Image/woman.png);
+  background-image: url(../Image/woman.png);
 }
 
 .buttonForDeley {

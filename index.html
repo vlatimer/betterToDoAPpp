@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TodoApp</title>
-  <link rel="stylesheet" href="./css/styles.css">
-  <link rel="stylesheet" href="./css/personElementsStyle.css">
-  <link rel="stylesheet" href="./css/personSearchStyle.css">
-  <link rel="stylesheet" href="./css/newElementStyle.css">
-  <link rel="stylesheet" href="./css/media8.css">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="./styles/personElementsStyle.css">
+  <link rel="stylesheet" href="./styles/personSearchStyle.css">
+  <link rel="stylesheet" href="./styles/newElementStyle.css">
+  <link rel="stylesheet" href="./styles/media8.css">
 </head>
 
 <body>
@@ -32,7 +32,7 @@
           <input type="radio" name="sex" value="woman" id="woman">
           <label for="woman">Woman</label>
         </div>
-        <input class="form-button button-input" type="reset" value="ADD" onclick="createPerson()">
+        <input id="createButton" class="form-button button-input" type="reset" value="ADD">
         <input class="form-button reset-input" type="reset" value="RESET">
       </form>
     </div>
@@ -91,8 +91,10 @@
         </div>
       </form>
     </div>
+    <script src="./js/helper.js"></script>
+    <script src="./js/Person.js"></script>
     <script src="./js/Computer.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/todo.js"></script>
 </body>
 
 </html>
