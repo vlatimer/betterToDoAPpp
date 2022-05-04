@@ -28,6 +28,6 @@ function toStringEducation(bool) {
   return bool ? "Higher education" : "Secondary education";
 }
 
-function toClassEducation(bool) {
-  return bool ? "high" : "low";
+function toClass(bool, first, second) {
+  return bool ? first : second;
 }

@@ -35,6 +35,7 @@ class NewPerson {
   }
   addingAllElementsToListOfDiv() {
     this.newDivElement.prepend(this.buttonForDeley);
+
     this.newDivElement.prepend(this.sexElement);
     this.newDivElement.prepend(this.educatedElement);
     // this.newDivElement.prepend(this.newDeletonElement);

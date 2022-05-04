@@ -17,13 +17,15 @@ class Computer {
     }
   }
 
-  /*Function add element with innerHTML, with class to other element.
+  /*Function add element with innerHTML, with class,and porperty to other element.
    * Add element name -> {elem},
    * With InnerHTMl name -> {[inner]} inner can be plent, can be HtmlElement | text,
    * With class name -> {kind},
-   * Add to element name -> {addelem} .
+   * Add to element name -> {addelem} 
+   * Whith porperty name -> {prop}
+   * And value of property -> {value} .
    */
-  addElementToDocument(elem, inner, addelem = null, kind = false) {
+  addElementToDocument(elem, inner, addelem = null, kind = false, prop = false, value = false) {
     let element = document.createElement(elem);
     for (let i = 0; i < inner.length; i++) {
       if (inner[i] instanceof HTMLElement) {
@@ -38,6 +40,11 @@ class Computer {
     for (let k = 0; k < kind.length; k++) {
       if (kind[k]) {
         element.classList.add(kind[k]);
+      }
+    }
+    for (let j = 0; j < prop.length; j++) {
+      if (prop[j]) {
+        element[prop[j]] = value[j];
       }
     }
     return element;

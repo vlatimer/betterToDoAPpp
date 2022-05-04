@@ -114,31 +114,30 @@
   position: relative;
   cursor: pointer;
   grid-row: 3 / span 1;
-  grid-column: 4 / span 2;
+  grid-column: 5 / span 1;
   height: 75%;
   width: 80%;
-  border-radius: 20px;
+  border-radius: 5px;
   background-color: transparent;
   border: 2px solid var(--error-color);
-  box-shadow: 0 2px 0 gray;
-  transition: 0.73s all linear 0s;
+  transition: 0.5s all linear 0s;
 }
 
 .buttonForDeley:hover {
   height: 80%;
   width: 90%;
+  letter-spacing: 2px;
 }
 
 .buttonForDeley.noButton:hover {
   height: 80%;
   width: 70px;
+  letter-spacing: 2px;
 }
 
 .buttonForDeley:focus {
   border-color: rgb(255, 101, 101);
   filter: drop-shadow(0px 0px 15px var(--error-color));
-  box-shadow: none;
-  top: 2px;
 }
 
 .noButton {
