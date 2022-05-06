@@ -8,7 +8,7 @@ class Person {
     this.delete = undefined;
     this.time = new Date();
   }
-  getProperty(prop) {
+  getProperty(prop = "surname") {
     return this[prop];
   }
   setDeleteTime(div) {

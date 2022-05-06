@@ -8,8 +8,11 @@ class Computer {
    * Of element name -> {prop},
    * In form name -> {form} or defolt ** name == 'create'.
    */
-  getFormElementData(data, prop, form = 'create') {
+  getFormElementData(data, prop, form = 'create', forSelect = false) {
     try {
+      if (forSelect) {
+        return document[form][prop].options[forSelect][data];
+      }
       return document[form][prop][data];
     } catch (error) {
       console.log(`[Computer]:: getFormElementData() return \n${error.name} \n${error.message}`);
@@ -48,5 +51,17 @@ class Computer {
       }
     }
     return element;
+  }
+
+  /*Function check: 
+   * if input[name = "name"] is checked,
+   * if input[name = "surname"] is checked,
+   * if input[name = "date"] is checked,
+   */
+  verifyInputForm() {
+    if (comp.getFormElementData("value", "name").trim() != "" && comp.getFormElementData("value", "surname").trim() != "" && comp.getFormElementData("value", "date").trim() != "") {
+      return true;
+    }
+    return false;
   }
 }

@@ -75,16 +75,16 @@
           </select>
         </div>
         <div class="sort">
-          <input type="radio" name="sorting" id="alfebet">
+          <input type="radio" name="sorting" id="alfebet" value="surname">
           <label for="alfebet" class="list-input">Alphabetically</label>
-          <input type="radio" name="sorting" id="creation">
+          <input type="radio" name="sorting" id="creation" value="time">
           <label for="creation" class="list-input">Creation time</label>
-          <input type="radio" name="sorting" id="deletion">
+          <input type="radio" name="sorting" id="deletion" value="delete">
           <label for="deletion" class="list-input">Deletion time</label>
-          <input type="radio" name="sorting" id="without" checked>
+          <input type="radio" name="sorting" id="without" checked value="none">
           <label for="without" class="list-input">Without sorting</label>
         </div>
-        <input class="form-button search-button" type="button" value="Search" onclick="search()">
+        <input id="searchButton" class="form-button search-button" type="button" value="Search">
         <p class="outlineP"></p>
         <div id="listDiv">
 
@@ -95,6 +95,7 @@
     <script src="./js/Person.js"></script>
     <script src="./js/Computer.js"></script>
     <script src="./js/todo.js"></script>
+    <script src="./js/searchFunction.js"></script>
 </body>
 
 </html>
