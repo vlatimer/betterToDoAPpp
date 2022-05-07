@@ -64,4 +64,21 @@ class Computer {
     }
     return false;
   }
+
+  /* Function show message with text and one color
+   * With text name -> {text},
+   * And color style with -> {info}.
+   */
+  sendMessage(text, info) {
+    message.innerHTML = `${_capitalLetter(text)}`;
+    message.classList.toggle("noMess");
+    if (info === "error") {
+      message.style.color = `var(--error-color)`;
+    } else if (info === "correct") {
+      message.style.color = `var(--corect-color)`;
+    }
+    setTimeout(() => {
+      message.classList.toggle("noMess");
+    }, 3000);
+  }
 }

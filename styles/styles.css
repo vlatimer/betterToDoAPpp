@@ -72,6 +72,7 @@ h4 {
   font-size: x-large;
 }
 
+/*Second grid*/
 .search-box {
   position: relative;
   border-radius: 20px;
@@ -79,4 +80,42 @@ h4 {
   grid-column: 2 / span 4;
   grid-row: 2 / span 3;
   grid-template: repeat(8, 1fr) 5% / 5% repeat(5, 1fr) 5%;
+}
+
+/*Message div*/
+.message {
+  text-align: center;
+  font-size: 22px;
+  color: var(--first-color);
+  padding: 30px 20px 30px 20px;
+  transition: 0.75s;
+  opacity: 0;
+  border: 5px solid var(--first-color);
+  border-top-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+  border-bottom-left-radius: 60px;
+  border-top-right-radius: 60px;
+  background-color: var(--background-color);
+  left: -100%;
+  width: 315px;
+  height: 145px;
+  top: 50%;
+  position: fixed;
+  transform: translateY(-50%);
+}
+
+.message::before {
+  box-sizing: content-box;
+  display: block;
+  content: "";
+  position: absolute;
+  border: 30px solid transparent;
+  border-right: 30px solid var(--first-color);
+  top: 20px;
+  left: -65px
+}
+
+.noMess {
+  left: 30px;
+  opacity: 1;
 }

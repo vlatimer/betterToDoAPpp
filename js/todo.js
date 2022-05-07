@@ -1,4 +1,5 @@
 const listDiv = document.querySelector("#listDiv");
+const message = document.querySelector("#message");
 var dict = new Map();
 var comp = new Computer();
 
@@ -22,11 +23,21 @@ document.getElementById("createButton").onclick = () => {
         }
       }, "Delete"])], listDiv, ["newElemenet"]);
     dict.set(element, employeeClass);
+    comp.sendMessage("One employee added", "correct");
+  } else {
+    comp.sendMessage("You have to fill in all the fields", "error");
   }
 };
 
 document.getElementById("searchButton").onclick = () => {
+  let lastIndex = true;
   arraySorting(mapFilter(dict, [comp.getFormElementData("value", "statusName", "search", [comp.getFormElementData("selectedIndex", "statusName", "search")]), comp.getFormElementData("value", "ageName", "search", [comp.getFormElementData("selectedIndex", "ageName", "search")]), comp.getFormElementData("value", "educationName", "search", [comp.getFormElementData("selectedIndex", "educationName", "search")]), comp.getFormElementData("value", "sexName", "search", [comp.getFormElementData("selectedIndex", "sexName", "search")])]), document.querySelector('input[name="sorting"]:checked').value).forEach((item, index, array) => {
     item[0].style.order = `${index}`;
+    lastIndex = index;
   });
+  if (lastIndex) {
+    comp.sendMessage(`No employees were found`, "error");
+  } else {
+    comp.sendMessage(`${lastIndex + 1} employees found`, "correct");
+  }
 };
