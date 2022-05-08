@@ -1,3 +1,6 @@
+const message = document.querySelector("#message");
+const sent = document.querySelector("#messageP");
+const messageImg = document.querySelector("#message img");
 class Computer {
   constructor() {
     //pass
@@ -70,11 +73,13 @@ class Computer {
    * And color style with -> {info}.
    */
   sendMessage(text, info) {
-    message.innerHTML = `${_capitalLetter(text)}`;
+    sent.innerHTML = `${_capitalLetter(text)}`;
     message.classList.toggle("noMess");
     if (info === "error") {
+      messageImg.style.backgroundColor = `var(--error-color)`;
       message.style.color = `var(--error-color)`;
     } else if (info === "correct") {
+      messageImg.style.backgroundColor = `var(--corect-color)`;
       message.style.color = `var(--corect-color)`;
     }
     setTimeout(() => {

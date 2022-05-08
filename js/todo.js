@@ -1,5 +1,4 @@
 const listDiv = document.querySelector("#listDiv");
-const message = document.querySelector("#message");
 var dict = new Map();
 var comp = new Computer();
 
@@ -30,14 +29,13 @@ document.getElementById("createButton").onclick = () => {
 };
 
 document.getElementById("searchButton").onclick = () => {
-  let lastIndex = true;
-  arraySorting(mapFilter(dict, [comp.getFormElementData("value", "statusName", "search", [comp.getFormElementData("selectedIndex", "statusName", "search")]), comp.getFormElementData("value", "ageName", "search", [comp.getFormElementData("selectedIndex", "ageName", "search")]), comp.getFormElementData("value", "educationName", "search", [comp.getFormElementData("selectedIndex", "educationName", "search")]), comp.getFormElementData("value", "sexName", "search", [comp.getFormElementData("selectedIndex", "sexName", "search")])]), document.querySelector('input[name="sorting"]:checked').value).forEach((item, index, array) => {
-    item[0].style.order = `${index}`;
-    lastIndex = index;
-  });
-  if (lastIndex) {
-    comp.sendMessage(`No employees were found`, "error");
-  } else {
-    comp.sendMessage(`${lastIndex + 1} employees found`, "correct");
+  try {
+    arraySorting(mapFilter(dict, [comp.getFormElementData("value", "statusName", "search", [comp.getFormElementData("selectedIndex", "statusName", "search")]), comp.getFormElementData("value", "ageName", "search", [comp.getFormElementData("selectedIndex", "ageName", "search")]), comp.getFormElementData("value", "educationName", "search", [comp.getFormElementData("selectedIndex", "educationName", "search")]), comp.getFormElementData("value", "sexName", "search", [comp.getFormElementData("selectedIndex", "sexName", "search")])]), document.querySelector('input[name="sorting"]:checked').value).forEach((item, index, array) => {
+      item[0].style.order = `${index}`;
+    });
+  } catch (e) {
+    if (e.message === "Cannot read properties of undefined (reading 'getTime')") {
+      comp.sendMessage("to work properly, you must enable the Dismissed status", "error");
+    }
   }
 };

@@ -85,16 +85,16 @@ h4 {
 /*Message div*/
 .message {
   text-align: center;
-  font-size: 22px;
+  font-size: 20px;
   color: var(--first-color);
-  padding: 30px 20px 30px 20px;
+  padding: 15px;
   transition: 0.75s;
   opacity: 0;
   border: 5px solid var(--first-color);
   border-top-left-radius: 22px;
   border-bottom-right-radius: 22px;
   border-bottom-left-radius: 60px;
-  border-top-right-radius: 60px;
+  border-top-right-radius: 5px;
   background-color: var(--background-color);
   left: -100%;
   width: 315px;
@@ -102,6 +102,16 @@ h4 {
   top: 50%;
   position: fixed;
   transform: translateY(-50%);
+}
+
+.message img {
+  top: 5px;
+  right: 5px;
+  border-radius: 20px;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  background-color: var(--first-color);
 }
 
 .message::before {

@@ -1,6 +1,5 @@
 function mapFilter(map, filters) {
   return [...map].filter((item, index, array) => {
-    console.log(filters);
     let _status = (status, person) => {
       let personStatus = person.getProperty("delete");
       if (status === "all") {
