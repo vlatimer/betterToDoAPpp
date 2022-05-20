@@ -129,9 +129,14 @@ input[type="radio"]:checked:before {
 
 .search-button.form-button {
   width: 80%;
-  cursor: pointer;
   grid-column: 2 / span 1;
   grid-row: 5 / span 1;
+}
+
+.reset-button.form-button {
+  width: 80%;
+  grid-row: 5/ span 1;
+  grid-column: 6 / span 1;
 }
 
 .outlineP {

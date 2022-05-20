@@ -21,19 +21,27 @@
         <input class="text-input" type="text" placeholder="Name" name="name">
         <input class="text-input" type="text" placeholder="Surname" name="surname">
         <input class="text-input" type="text" placeholder="01.01.2001" name="date">
-        <h4 class="other-sittings">Other settings:</h4>
-        <div class="education-box">
-          <input class="education-checkbox" type="checkbox" name="education" id="education">
-          <label for="education">Education</label>
-        </div>
-        <div class="sex-box">
-          <input type="radio" name="sex" value="man" checked id="man">
-          <label for="man">Man</label>
-          <input type="radio" name="sex" value="woman" id="woman">
-          <label for="woman">Woman</label>
-        </div>
-        <input id="createButton" class="form-button button-input" type="reset" value="ADD">
-        <input class="form-button reset-input" type="reset" value="RESET">
+        <h3 class="other-sittings">Other settings:</h4>
+          <div class="education-box">
+            <h4>Education:</h4>
+            <div class="input-box">
+              <input class="education-checkbox" type="checkbox" name="education" id="education">
+              <label for="education">High</label>
+            </div>
+          </div>
+          <div class="sex-box">
+            <h4>Gender:</h4>
+            <div class="input-box">
+              <input type="radio" name="sex" value="man" checked id="man">
+              <label for="man">Man</label>
+            </div>
+            <div class="input-box">
+              <input type="radio" name="sex" value="woman" id="woman">
+              <label for="woman">Woman</label>
+            </div>
+          </div>
+          <input id="createButton" class="form-button button-input" type="reset" value="ADD">
+          <input class="form-button reset-input" type="reset" value="RESET">
       </form>
     </div>
     <div class="box">
@@ -85,6 +93,7 @@
           <label for="without" class="list-input">Without sorting</label>
         </div>
         <input id="searchButton" class="form-button search-button" type="button" value="Search">
+        <input class="form-button reset-button" type="reset" value="RESET">
         <div id="listDiv">
         </div>
       </form>
