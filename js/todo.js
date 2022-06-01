@@ -1,41 +1,149 @@
 const listDiv = document.querySelector("#listDiv");
-var dict = new Map();
-var comp = new Computer();
 
-document.getElementById("createButton").onclick = () => {
-  if (comp.verifyInputForm()) {
-    let employeeClass = new Person(
-      comp.getFormElementData("value", "name"),
-      comp.getFormElementData("value", "surname"),
-      comp.getFormElementData("value", "date"),
-      comp.getFormElementData("checked", "education"),
-      comp.getFormElementData("value", "sex"));
-    let element = comp.addElementToDocument("div",
-      [comp.addElementToDocument("p", [`${_capitalLetter(employeeClass.getProperty("name"))} ${_capitalLetter(employeeClass.getProperty("surname"))}`], null, ["names"]), comp.addElementToDocument("p", [`Age: ${_calculateAge(employeeClass.getProperty("date"))}`], null, ["birthday"]), comp.addElementToDocument("p", [comp.addElementToDocument("p", ["Create Time"]), comp.addElementToDocument("span", [`${_getStringOfTime(employeeClass.time)} / ${_getStringOfDate(employeeClass.time)}`])], null, ["creationTime"]), comp.addElementToDocument("p", [toStringEducation(employeeClass.education)], null, ["educatedElement", toClass(employeeClass.education, "high", "low")]), comp.addElementToDocument("p", [_capitalLetter(employeeClass.sex)], null, ["sexElement", employeeClass.sex]), comp.addElementToDocument("input", [], null, ["buttonForDeley"], ["type", "onclick", "value"], ["button", (event) => {
-        let closestDiv = event.target.closest('div');
-        if (dict.get(closestDiv)["delete"] == undefined) {
-          event.target.classList.add("noButton");
-          setTimeout(function () {
-            event.target.style.display = "none";
-            dict.get(closestDiv).setDeleteTime(closestDiv);
-          }, 1000);
-        }
-      }, "Delete"])], listDiv, ["newElemenet"]);
-    dict.set(element, employeeClass);
-    comp.sendMessage("One employee added", "correct");
-  } else {
-    comp.sendMessage("You have to fill in all the fields", "error");
+const message = document.querySelector("#message");
+const sent = document.querySelector("#messageP");
+const messageImg = document.querySelector("#message img");
+
+const create_form = document.getElementById("createForm");
+const search_form = document.getElementById("searchForm");
+
+let mainArray = [];
+
+function deleteElement(event) {
+  let closestDiv = event.target.closest('div');
+
+  let arrElem = mainArray[closestDiv.id];
+  if (!arrElem.person.deleted) {
+    arrElem.person.deleted = new Date();
+    arrElem.element.appendChild(
+      createDelTime(arrElem.person.deleted)
+    );
+    setStylesToDeletedButton(event.target);
   }
+}
+
+function createElement(element_name, attributes, element_children) {
+  const element = document.createElement(element_name);
+
+  //adding child to element
+  (element_children || []).forEach((child) => {
+    //if child is other element:
+    if (child instanceof HTMLElement) {
+      element.appendChild(child);
+    }
+    //if child is text:
+    if (typeof (child) === "string") {
+      element.innerHTML = child;
+    }
+  });
+
+  Object.keys(attributes || {}).forEach((key) => {
+
+    if (key === "classList") {
+      attributes[key].forEach((class_name) => {
+        element.classList.add(class_name);
+      });
+      return;
+    }
+
+    if (key.startsWith("on")) {
+      attributes[key].forEach((event_foo) => {
+        const eventName = key.slice(2);
+        element.addEventListener(eventName, event_foo, false);
+      });
+      return;
+    }
+    element.setAttribute(key, attributes[key]);
+  });
+
+  return element;
+}
+
+function createNewElement(person) {
+  const newElemenet = createElement("div", {
+    classList: ["newElemenet"]
+  }, [
+
+    createElement("p", {
+      classList: ["names"]
+    }, [`${person.fullName}`]),
+
+    createElement("p", {
+      classList: ["birthday"]
+    }, [`Age: ${person.age}`]),
+
+    createElement("p", {
+      classList: ["creationTime"]
+    }, [
+      createElement("p", {}, ["Create Time"]),
+
+      createElement("span", {}, [`${person.onlyTime} / ${person.onlyDate}`])
+    ]),
+
+    createElement("p", {
+      classList: ["educatedElement", person.classEducation]
+    }, [person.strEducation]),
+
+    createElement("p", {
+      classList: ["sexElement", person.sex]
+    }, [person.sex]),
+
+    createElement("input", {
+      classList: ["buttonForDeley", "workButton"],
+      onclick: [deleteElement],
+      type: "button"
+    })
+
+  ]);
+
+  return newElemenet;
+}
+
+create_form.onsubmit = (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+  const data = getFormData(formData);
+
+  const person = new Person(data);
+
+  if (Person.verify(data)) {
+    const element = createNewElement(person);
+    listDiv.appendChild(element);
+
+    element.id = addToMainArray(person, element);
+
+    element.style.order = "-1";
+    mess.send("new Employee");
+  } else {
+    mess.error("You must fill all inputs");
+  }
+  create_form.reset();
 };
 
-document.getElementById("searchButton").onclick = () => {
+search_form.onsubmit = (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+
+  const {
+    sorting,
+    ...filters
+  } = getFormData(formData);
   try {
-    arraySorting(mapFilter(dict, [comp.getFormElementData("value", "statusName", "search", [comp.getFormElementData("selectedIndex", "statusName", "search")]), comp.getFormElementData("value", "ageName", "search", [comp.getFormElementData("selectedIndex", "ageName", "search")]), comp.getFormElementData("value", "educationName", "search", [comp.getFormElementData("selectedIndex", "educationName", "search")]), comp.getFormElementData("value", "sexName", "search", [comp.getFormElementData("selectedIndex", "sexName", "search")])]), document.querySelector('input[name="sorting"]:checked').value).forEach((item, index, array) => {
-      item[0].style.order = `${index}`;
+    let len;
+    arraySorting(
+      arrayFilter(mainArray, filters),
+      sorting
+    ).forEach((item, index, array) => {
+      if (!len) {
+        len = array.length;
+      }
+      item.element.style.order = `${index}`;
     });
+    mess.send(`Found ${len} employees`);
   } catch (e) {
-    if (e.message === "Cannot read properties of undefined (reading 'getTime')") {
-      comp.sendMessage("to work properly, you must enable the Dismissed status", "error");
-    }
+    console.log(e.message);
+    mess.error("Incorect filters");
   }
 };

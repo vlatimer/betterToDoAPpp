@@ -1,20 +1,20 @@
-function mapFilter(map, filters) {
-  return [...map].filter((item, index, array) => {
+function arrayFilter(arr, filters) {
+  return arr.filter((item) => {
     let _status = (status, person) => {
-      let personStatus = person.getProperty("delete");
+      const personStatus = person.deleted;
       if (status === "all") {
         return true;
       }
-      if (status === "work" && personStatus == undefined) {
+      if (status === "work" && !personStatus) {
         return true;
       }
-      if (status === "notWork" && personStatus != undefined) {
+      if (status === "notWork" && personStatus) {
         return true;
       }
       return false;
     };
     let _age = (age, person) => {
-      let personAge = _calculateAge(person.getProperty("date"));
+      const personAge = person.age;
       if (age === "all") {
         return true;
       }
@@ -31,7 +31,7 @@ function mapFilter(map, filters) {
       return false;
     };
     let _education = (education, person) => {
-      let personEducation = person.getProperty("education");
+      const personEducation = person.education;
       if (education === "all") {
         return true;
       }
@@ -44,47 +44,37 @@ function mapFilter(map, filters) {
       return false;
     };
     let _sex = (sex, person) => {
-      let personSex = person.getProperty("sex");
+      const personSex = person.sex;
       if (sex === "all") {
         return true;
       }
-      if (sex === "man" && personSex === "man") {
+      if (sex === "Man" && personSex === "Man") {
         return true;
       }
-      if (sex === "woman" && personSex === "woman") {
+      if (sex === "Woman" && personSex === "Woman") {
         return true;
       }
       return false;
     };
-    if (_status(filters[0], item[1]) && _age(filters[1], item[1]) && _education(filters[2], item[1]) && _sex(filters[3], item[1])) {
-      item[0].style.display = "grid";
+    if (_status(filters.statusName, item.person) &&
+      _age(filters.ageName, item.person) &&
+      _education(filters.educationName, item.person) &&
+      _sex(filters.sexName, item.person)) {
+      item.element.style.display = "grid";
+      item.element.style.order = "0";
       return true;
-    } else {
-      item[0].style.display = "none";
-      return false;
     }
+    item.element.style.display = "none";
+    item.element.style.order = "0";
+    return false;
   });
 }
 
-function arraySorting(array, parameter) {
-  if (parameter === "surname") {
+function arraySorting(array, sort) {
+  if (sort === "surname") {
     return array.sort((a, b) => {
-      let posA = a[1][parameter];
-      let posB = b[1][parameter];
-      if (posA > posB) {
-        return 1;
-      } else if (posA < posB) {
-        return -1;
-      } else {
-        return 0;
-      }
-    });
-  } else if (parameter === "none") {
-    return array;
-  } else {
-    return array.sort((a, b) => {
-      let posA = a[1][parameter].getTime();
-      let posB = b[1][parameter].getTime();
+      let posA = a.person.fullName;
+      let posB = b.person.fullName;
       if (posA > posB) {
         return 1;
       } else if (posA < posB) {
@@ -94,4 +84,31 @@ function arraySorting(array, parameter) {
       }
     });
   }
+  if (sort === "time") {
+    return array.sort((a, b) => {
+      let posA = a.person.time.getTime();
+      let posB = b.person.time.getTime();
+      if (posA > posB) {
+        return 1;
+      } else if (posA < posB) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  }
+  if (sort === "delete") {
+    return array.sort((a, b) => {
+      let posA = a.person.deleted ? a.person.deleted.getTime() : Infinity;
+      let posB = b.person.deleted ? b.person.deleted.getTime() : Infinity;
+      if (posA > posB) {
+        return 1;
+      } else if (posA < posB) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  }
+  return array;
 }

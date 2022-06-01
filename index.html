@@ -16,7 +16,7 @@
 <body>
   <section class="app">
     <div class="box">
-      <form class="form-box create-box" name="create">
+      <form id="createForm" class="form-box create-box">
         <h3 class="create-header">Adding employees</h3>
         <input class="text-input" type="text" placeholder="Name" name="name">
         <input class="text-input" type="text" placeholder="Surname" name="surname">
@@ -40,12 +40,12 @@
               <label for="woman">Woman</label>
             </div>
           </div>
-          <input id="createButton" class="form-button button-input" type="reset" value="ADD">
+          <input id="createButton" class="form-button button-input" type="submit" value="ADD">
           <input class="form-button reset-input" type="reset" value="RESET">
       </form>
     </div>
     <div class="box">
-      <form class="form-box search-box" name="search">
+      <form id="searchForm" class="form-box search-box">
         <h3 class="search-header">Search for employees</h3>
         <h4 class="filter-header">Filters:</h4>
         <h4 class="sorting-header">Sorting:</h4>
@@ -78,8 +78,8 @@
           <label for="sex-id">Gender:</label>
           <select name="sexName" id="sex-id">
             <option value="all">All</option>
-            <option value="man">Man</option>
-            <option value="woman">Woman</option>
+            <option value="Man">Man</option>
+            <option value="Woman">Woman</option>
           </select>
         </div>
         <div class="sort">
@@ -92,11 +92,11 @@
           <input type="radio" name="sorting" id="without" checked value="none">
           <label for="without" class="list-input">Without sorting</label>
         </div>
-        <input id="searchButton" class="form-button search-button" type="button" value="Search">
-        <input class="form-button reset-button" type="reset" value="RESET">
-        <div id="listDiv">
-        </div>
+        <input class="form-button search-button" type="submit" value="Search">
+        <input class="form-button reset-button" type="reset" value="Reset">
       </form>
+      <div id="listDiv">
+      </div>
     </div>
     <div class="message" id="message">
       <img src="./Image/alert.png">
@@ -104,10 +104,11 @@
       <p id="messageP"></p>
     </div>
     <script src="./js/helper.js"></script>
+    <script src="./js/mess.js"></script>
     <script src="./js/Person.js"></script>
-    <script src="./js/Computer.js"></script>
     <script src="./js/todo.js"></script>
     <script src="./js/searchFunction.js"></script>
+    <script src="./js/testDo.js"></script>
 </body>
 
 </html>

@@ -40,7 +40,7 @@ body::-webkit-scrollbar {
 .app .box:nth-child(2) {
   background-color: var(--background-color-for-first-form);
   display: grid;
-  grid-template: var(--border-for-gridscreen) repeat(3, 2fr) var(--border-for-gridscreen) / var(--border-for-gridscreen) repeat(4, 1fr) var(--border-for-gridscreen);
+  grid-template: var(--border-for-gridscreen) repeat(2, 2fr) 20px 2fr var(--border-for-gridscreen) / var(--border-for-gridscreen) repeat(4, 1fr) var(--border-for-gridscreen);
 }
 
 .form-box {
@@ -79,8 +79,8 @@ h4 {
   border-radius: 20px;
   width: 100%;
   grid-column: 2 / span 4;
-  grid-row: 2 / span 3;
-  grid-template: repeat(8, 1fr) 5% / 5% repeat(5, 1fr) 5%;
+  grid-row: 2 / span 2;
+  grid-template: repeat(5, 1fr)/ 5% repeat(5, 1fr) 5%;
 }
 
 /*Message div*/

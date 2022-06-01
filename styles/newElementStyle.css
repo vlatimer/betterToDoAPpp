@@ -1,44 +1,49 @@
 .newElemenet {
-  margin: 0;
+  background-color: var(--background-color);
+  color: white;
+  margin: auto;
   box-sizing: border-box;
   margin-bottom: 15px;
   position: relative;
-  height: 120px;
+  height: 150px;
   width: 100%;
   display: grid;
-  grid-template: 10% repeat(3, 26.66%) 10% / 2.5% repeat(4, 23.75%) 2.5%;
+  grid-template: 10% repeat(4, 20%) 10% / 2.5% 47.5% 31.66% 15.833% 2.5%;
   border: 5px solid var(--first-color);
   border-radius: 20px;
 }
 
 .names {
+  text-align: start;
   grid-row: 2 / span 1;
-  grid-column: 2 / span 2;
+  grid-column: 2 / span 1;
 }
 
 .birthday {
-  grid-row: 2 / span 1;
-  grid-column: 4 / span 2;
+  text-align: start;
+  grid-row: 3 / span 1;
+  grid-column: 2 / span 1;
 }
 
 .creationTime {
-  grid-row: 3 / span 1;
-  grid-column: 2 / span 2;
+  grid-row: 2 / span 2;
+  grid-column: 3 / span 1;
 }
 
-.deletiontime {
-  grid-row: 3 / span 1;
-  grid-column: 4 / span 2;
+.deletionTime {
+  grid-row: 4 / span 2;
+  grid-column: 3 / span 1;
 }
 
-.deletiontime,
+.deletionTime,
 .creationTime {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  margin: auto;
+  /* display: flex;
+  flex-direction: column; */
 }
 
-.deletiontime::after,
+.deletionTime::after,
 .creationTime::after {
   top: 50%;
   transform: translate(0, -50%);
@@ -54,25 +59,27 @@
   background-image: url(../Image/alarm-clock.png);
 }
 
-.deletiontime::after {
+.deletionTime::after {
   background-color: var(--error-color);
 }
 
 .creationTime span,
-.deletiontime span {
+.deletionTime span {
   font-size: 11px;
 }
 
 
 .educatedElement {
-  grid-row: 4 / span 1;
-  grid-column: 2 /span 2;
+  margin: auto;
+  grid-row: 5 / span 1;
+  grid-column: 2 /span 1;
   position: relative;
 }
 
 .sexElement {
+  margin: auto;
   grid-row: 4 / span 1;
-  grid-column: 4 /span 2;
+  grid-column: 2 /span 1;
   position: relative;
 }
 
@@ -100,48 +107,44 @@
   background-image: url(../Image/school.png);
 }
 
-.sexElement.man::after {
+.sexElement.Man::after {
   background-image: url(../Image/young-man.png);
   background-color: rgb(118, 202, 247);
 }
 
-.sexElement.woman::after {
+.sexElement.Woman::after {
   background-color: rgb(211, 118, 247);
   background-image: url(../Image/woman.png);
 }
 
 .buttonForDeley {
+  background-image: url(../Image/delete.png);
+  background-size: 100% 100%;
+  margin: auto;
   position: relative;
   cursor: pointer;
-  grid-row: 3 / span 1;
-  grid-column: 5 / span 1;
-  height: 75%;
-  width: 80%;
+  grid-row: 3 / span 2;
+  grid-column: 4 / span 1;
+  height: 40px;
+  width: 40px;
   border-radius: 5px;
   background-color: transparent;
-  border: 2px solid var(--error-color);
+  border: 3px solid var(--error-color);
   transition: 0.5s all linear 0s;
 }
 
-.buttonForDeley:hover {
-  height: 80%;
-  width: 90%;
-  letter-spacing: 2px;
-}
-
-.buttonForDeley.noButton:hover {
-  height: 80%;
-  width: 70px;
-  letter-spacing: 2px;
-}
-
-.buttonForDeley:focus {
-  border-color: rgb(255, 101, 101);
+.workButton:hover {
+  height: 50px;
+  width: 50px;
   filter: drop-shadow(0px 0px 15px var(--error-color));
 }
 
+.workButton:focus {
+  border-color: rgb(255, 101, 101);
+}
+
 .noButton {
-  width: 70px;
-  background-color: rgb(255, 101, 101);
+  background-color: rgb(156, 50, 50);
+  border-color: rgb(156, 50, 50);
   transform: rotate(30deg);
 }
