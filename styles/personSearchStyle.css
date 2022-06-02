@@ -135,7 +135,7 @@ input[type="radio"]:checked:before {
 
 .reset-button.form-button {
   margin: auto;
-  width: 50%;
+  width: 70px;
   grid-row: 5/ span 1;
   grid-column: 5 / span 2;
 }

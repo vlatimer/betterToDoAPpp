@@ -82,7 +82,7 @@
 
   .app .box:nth-child(2) {
     height: 100vh;
-    grid-template: var(--border-for-gridscreen) repeat(3, 2fr) var(--border-for-gridscreen) / var(--border-for-gridscreen) repeat(4, 1fr) var(--border-for-gridscreen);
+    grid-template: var(--border-for-gridscreen) repeat(2, 2fr) var(--border-for-gridscreen) 2fr var(--border-for-gridscreen) / var(--border-for-gridscreen) repeat(4, 1fr) var(--border-for-gridscreen);
   }
 
   h3 {
@@ -176,9 +176,17 @@
 }
 
 @media(max-width: 500px) {
+
+  .names,
+  .birthday,
+  .sexElement,
+  .educatedElement {
+    font-size: small;
+  }
+
   .educatedElement::after {
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
   }
 }
 
