@@ -141,7 +141,8 @@ search_form.onsubmit = (event) => {
       }
       item.element.style.order = `${index}`;
     });
-    mess.send(`Found ${len} employees`);
+
+    mess.send(`Found ${(len || 0)} employees`);
   } catch (e) {
     console.log(e.message);
     mess.error("Incorect filters");
